@@ -1,0 +1,45 @@
+[alias]
+
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+    # git change-commits GIT_COMMITTER_NAME "old name" "new name"
+    change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [ \\"$echo $VAR\\" = \\"$OLD\\" ]; then export $VAR=\\"$NEW\\"; fi\" $@; }; f" ]
+
+[core]
+
+    # Treat spaces before tabs and all kinds of trailing whitespace as an error
+    # [default] trailing-space: looks for spaces at the end of a line
+    # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+    whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+    # Make `git rebase` safer on macOS
+    # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+    trustctime = false
+
+    # Prevent showing files whose names contain non-ASCII symbols as unversioned.
+    # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+    precomposeunicode = false
+
+[commit]
+
+    # https://help.github.com/articles/signing-commits-using-gpg/
+    gpgsign = true
+
+[diff]
+
+    # Detect copies as well as renames
+    renames = copies
+
+[diff "bin"]
+
+    # Use `hexdump` to diff binary files
+    textconv = hexdump -v -C
+
+[help]
+
+    # Automatically correct and execute mistyped commands
+    autocorrect = 1
+
+[include]
+    # Separate file for non-public configuration
+    path = ~/.gitconfig.local
