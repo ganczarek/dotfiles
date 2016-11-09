@@ -8,11 +8,11 @@ link_dot_file() {
 
   if [[ ! -L "$DEST" ]]; then
     if [[ -e "$DEST" ]]; then
-        echo "Backing up $DEST under ${DEST}_backup"
+        echo "Backing up $DEST to ${DEST}_backup"
         mv ${DEST} ${DEST}_backup
     fi
 
-    echo "Create symbolic link tp ${DEST} FROM ${SOURCE}"
+    echo "Create symbolic: ${SOURCE} -> ${DEST}"
     ln -s ${SOURCE} ${DEST}
   fi
 }
@@ -26,3 +26,4 @@ if [ ! -d "$ZSH" ]; then
 fi
 
 link_dot_file zsh/zshrc ~/.zshrc
+link_dot_file git/gitconfig ~/.gitconfig
