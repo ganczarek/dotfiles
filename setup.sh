@@ -7,14 +7,23 @@ link_dot_file() {
   DEST=$2
 
   if [[ ! -L "$DEST" ]]; then
+    # Back up existing file
     if [[ -e "$DEST" ]]; then
         echo "Backing up $DEST to ${DEST}_backup"
         mv ${DEST} ${DEST}_backup
     fi
-
-    echo "Create symbolic: ${SOURCE} -> ${DEST}"
-    ln -s ${SOURCE} ${DEST}
+  else
+    # refresh symbolic link, if points at different file
+    if [ `readlink ${DEST}` != "${SOURCE}" ]; then
+        echo "unlink ${DEST} -> `readlink ${DEST}`"
+        unlink ${DEST}
+    else
+        return # already linked, skip
+    fi
   fi
+
+   echo "Create symbolic: ${DEST} -> ${SOURCE}"
+   ln -s ${SOURCE} ${DEST}
 }
 
 # Install oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh)
