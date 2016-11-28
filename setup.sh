@@ -27,3 +27,4 @@ fi
 
 link_dot_file zsh/zshrc ~/.zshrc
 link_dot_file git/gitconfig ~/.gitconfig
+link_dot_file other/theanorc ~/.theanorc
