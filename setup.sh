@@ -34,6 +34,7 @@ if [ ! -d "$ZSH" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
-link_dot_file zsh/zshrc ~/.zshrc
+link_dot_file shell/zshrc ~/.zshrc
+link_dot_file shell/tmux.conf ~/.tmux.conf
 link_dot_file git/gitconfig ~/.gitconfig
 link_dot_file other/theanorc ~/.theanorc
