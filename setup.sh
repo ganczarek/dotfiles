@@ -18,7 +18,7 @@ link_dot_file() {
         echo "unlink ${DEST} -> `readlink ${DEST}`"
         unlink ${DEST}
     else
-        return # already linked, skip
+        return 0 # already linked, skip with success
     fi
   fi
 
@@ -38,3 +38,6 @@ link_dot_file shell/zshrc ~/.zshrc
 link_dot_file shell/tmux.conf ~/.tmux.conf
 link_dot_file git/gitconfig ~/.gitconfig
 link_dot_file other/theanorc ~/.theanorc
+
+sh vim/install_vim_plugins.sh
+link_dot_file vim/vimrc ~/.vimrc
