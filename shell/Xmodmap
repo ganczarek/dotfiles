@@ -1,0 +1,16 @@
+!change CapsLock to Control and Shift+CapsLock to CapsLock
+clear lock
+clear control
+add control = Caps_Lock Control_L Control_R
+keycode  66 = Control_L Caps_Lock NoSymbol NoSymbol
+
+!use right Control (keycode 105) as a modifier key for Spanish letters
+keycode  105 = Mode_switch
+keycode  10 = 1 exclam 1 exclamdown notequal exclamdown
+keycode  26 = e E eacute Eacute eogonek Eogonek
+keycode  30 = u U uacute Uacute udiaeresis Udiaeresis
+keycode  31 = i I iacute Iacute rightarrow U2194
+keycode  32 = o O oacute Oacute oacute Oacute
+keycode  38 = a A aacute Aacute aogonek Aogonek
+keycode  57 = n N ntilde Ntilde nacute Nacute
+keycode  61 = slash question slash questiondown dead_belowdot dead_abovedot

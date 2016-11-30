@@ -36,6 +36,7 @@ fi
 
 link_dot_file shell/zshrc ~/.zshrc
 link_dot_file shell/tmux.conf ~/.tmux.conf
+link_dot_file shell/Xmodmap ~/.Xmodmap
 link_dot_file git/gitconfig ~/.gitconfig
 link_dot_file other/theanorc ~/.theanorc
 
