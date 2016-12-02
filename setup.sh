@@ -34,11 +34,14 @@ if [ ! -d "$ZSH" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
+mkdir -p ~/.config
+
 link_dot_file shell/zshrc ~/.zshrc
 link_dot_file shell/tmux.conf ~/.tmux.conf
 link_dot_file shell/Xmodmap ~/.Xmodmap
 link_dot_file git/gitconfig ~/.gitconfig
 link_dot_file other/theanorc ~/.theanorc
+link_dot_file other/redshift.conf ~/.config/redshift.conf
 
 sh vim/install_vim_plugins.sh
 link_dot_file vim/vimrc ~/.vimrc
