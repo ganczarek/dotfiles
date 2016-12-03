@@ -96,3 +96,7 @@ fi
 
 # pull and rebase all repositories you can list within current dir
 alias rg-git-pull-rebase-all="ls | xargs -I % sh -xc 'cd % && git diff-index --quiet HEAD -- && git pull --rebase'"
+
+if [[ ! $TERM =~ screen ]]; then
+    exec tmux
+fi
