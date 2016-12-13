@@ -35,6 +35,7 @@ if [ ! -d "$ZSH" ]; then
 fi
 
 mkdir -p ~/.config
+mkdir -p ~/.gnupg
 
 link_dot_file shell/zshrc ~/.zshrc
 link_dot_file shell/tmux.conf ~/.tmux.conf
@@ -42,6 +43,16 @@ link_dot_file shell/Xmodmap ~/.Xmodmap
 link_dot_file git/gitconfig ~/.gitconfig
 link_dot_file other/theanorc ~/.theanorc
 link_dot_file other/redshift.conf ~/.config/redshift.conf
+link_dot_file gnupg/gpg.conf ~/.gnupg/gpg.conf
+link_dot_file gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 sh vim/install_vim_plugins.sh
 link_dot_file vim/vimrc ~/.vimrc
+
+# Needed so that gpg-agent.conf can be shared between MacOS and Arch Linux
+if [ "$(uname)" == "Darwin" ]; then
+    if [ -e /usr/local/bin/pinentry-mac ] && [ ! -e /usr/bin/pinentry ]; then
+        echo "Link GnuPG pinentry for Mac"
+        sudo ln -s /usr/local/bin/pinentry-mac /usr/bin/pinentry
+    fi
+fi
