@@ -87,12 +87,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # some installation scripts assume that bash is being used and modify only .bash_profile
-source ~/.bash_profile
+[ -f ~/.bash_profile ] && source ~/.bash_profile
 
 # local configuration
-if [ -f ~/.zshrc.local ]; then
-    source ~/.zshrc.local
-fi
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # pull and rebase all repositories you can list within current dir
 alias rg-git-pull-rebase-all="ls | xargs -I % sh -xc 'cd % && git diff-index --quiet HEAD -- && git pull --rebase'"

@@ -46,7 +46,7 @@ link_dot_file other/redshift.conf ~/.config/redshift.conf
 link_dot_file gnupg/gpg.conf ~/.gnupg/gpg.conf
 link_dot_file gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
-sh vim/install_vim_plugins.sh
+sh ${DOTFILESDIR}/vim/install_vim_plugins.sh
 link_dot_file vim/vimrc ~/.vimrc
 
 # Needed so that gpg-agent.conf can be shared between MacOS and Arch Linux
