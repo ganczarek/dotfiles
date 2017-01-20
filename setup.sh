@@ -49,6 +49,11 @@ link_dot_file gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 sh ${DOTFILESDIR}/vim/install_vim_plugins.sh
 link_dot_file vim/vimrc ~/.vimrc
 
+# use same Vim configuration with Neovim
+mkdir -p ~/.config/nvim
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+
 # Needed so that gpg-agent.conf can be shared between MacOS and Arch Linux
 if [ "$(uname)" == "Darwin" ]; then
     if [ -e /usr/local/bin/pinentry-mac ] && [ ! -e /usr/bin/pinentry ]; then
