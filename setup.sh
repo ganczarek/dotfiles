@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
-DOTFILESDIR="`pwd`/`dirname $0`"
-
-link_dot_file() {
-  SOURCE=${DOTFILESDIR}/$1
+backup_and_create_symbolic_link() {
+  SOURCE=$1
   DEST=$2
 
   if [[ ! -L "$DEST" ]]; then
-    # Back up existing file
+    # Back up existing file/directory
     if [[ -e "$DEST" ]]; then
-        echo "Backing up $DEST to ${DEST}_backup"
+        echo "Moving $DEST to ${DEST}_backup"
         mv ${DEST} ${DEST}_backup
     fi
   else
@@ -37,22 +35,26 @@ fi
 mkdir -p ~/.config
 mkdir -p ~/.gnupg
 
-link_dot_file shell/zshrc ~/.zshrc
-link_dot_file shell/tmux.conf ~/.tmux.conf
-link_dot_file shell/Xmodmap ~/.Xmodmap
-link_dot_file git/gitconfig ~/.gitconfig
-link_dot_file other/theanorc ~/.theanorc
-link_dot_file other/redshift.conf ~/.config/redshift.conf
-link_dot_file gnupg/gpg.conf ~/.gnupg/gpg.conf
-link_dot_file gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+# get absolute path to dotfiles directory
+if [ `dirname $0` != "." ]; then
+    DOTFILESDIR="`pwd`/`dirname $0`"
+else
+    DOTFILESDIR="`pwd`"
+fi
+backup_and_create_symbolic_link ${DOTFILESDIR}/shell/zshrc ~/.zshrc
+backup_and_create_symbolic_link ${DOTFILESDIR}/shell/tmux.conf ~/.tmux.conf
+backup_and_create_symbolic_link ${DOTFILESDIR}/shell/Xmodmap ~/.Xmodmap
+backup_and_create_symbolic_link ${DOTFILESDIR}/git/gitconfig ~/.gitconfig
+backup_and_create_symbolic_link ${DOTFILESDIR}/other/theanorc ~/.theanorc
+backup_and_create_symbolic_link ${DOTFILESDIR}/other/redshift.conf ~/.config/redshift.conf
+backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg.conf ~/.gnupg/gpg.conf
+backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 sh ${DOTFILESDIR}/vim/install_vim_plugins.sh
-link_dot_file vim/vimrc ~/.vimrc
-
-# use same Vim configuration with Neovim
-mkdir -p ~/.config/nvim
-ln -s ~/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
+backup_and_create_symbolic_link ${DOTFILESDIR}/vim/vimrc ~/.vimrc
+# use the same configuration with Vim and Neovim
+backup_and_create_symbolic_link ~/.vim ~/.config/nvim
+backup_and_create_symbolic_link ~/.vimrc ~/.config/nvim/init.vim
 
 # Needed so that gpg-agent.conf can be shared between MacOS and Arch Linux
 if [ "$(uname)" == "Darwin" ]; then
