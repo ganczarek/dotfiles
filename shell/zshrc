@@ -97,7 +97,7 @@ export EDITOR='vim'
 alias rg-git-pull-rebase-all="ls | xargs -I % sh -xc 'cd % && git diff-index --quiet HEAD -- && git pull --rebase'"
 
 if [[ ! $TERM =~ screen ]]; then
-    exec tmux
+    exec tmux new-session -A -s $HOST
 fi
 
 if `command -v gpg-agent >/dev/null 2>&1` ; then
