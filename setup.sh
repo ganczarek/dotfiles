@@ -52,6 +52,7 @@ backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg-agent.conf ~/.gnupg/gpg
 
 sh ${DOTFILESDIR}/vim/install_vim_plugins.sh
 backup_and_create_symbolic_link ${DOTFILESDIR}/vim/vimrc ~/.vimrc
+backup_and_create_symbolic_link ${DOTFILESDIR}/vim/ideavimrc ~/.ideavimrc
 # use the same configuration with Vim and Neovim
 backup_and_create_symbolic_link ~/.vim ~/.config/nvim
 backup_and_create_symbolic_link ~/.vimrc ~/.config/nvim/init.vim
