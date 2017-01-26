@@ -2,5 +2,9 @@ syntax on
 
 set clipboard=unnamedplus
 
-" make cursor a pipe in insert mode and block in normal mode
-:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1        " make cursor a pipe in insert mode and block in normal mode
+
+" Powerline
+set rtp+=$POWERLINE_DIR/bindings/vim/       " Add Powerline bindings to run time path
+set laststatus=2                            " Always show statusline
+set t_Co=256                                " Use 256 colours

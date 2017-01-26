@@ -96,6 +96,8 @@ export EDITOR='vim'
 # pull and rebase all repositories you can list within current dir
 alias rg-git-pull-rebase-all="ls | xargs -I % sh -xc 'cd % && git diff-index --quiet HEAD -- && git pull --rebase'"
 
+export POWERLINE_DIR="/usr/lib/python3.6/site-packages/powerline"
+
 if [[ ! $TERM =~ screen ]]; then
     exec tmux new-session -A -s main
 fi
