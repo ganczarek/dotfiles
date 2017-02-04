@@ -50,12 +50,17 @@ backup_and_create_symbolic_link ${DOTFILESDIR}/other/redshift.conf ~/.config/red
 backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg.conf ~/.gnupg/gpg.conf
 backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
-sh ${DOTFILESDIR}/vim/install_vim_plugins.sh
 backup_and_create_symbolic_link ${DOTFILESDIR}/vim/vimrc ~/.vimrc
 backup_and_create_symbolic_link ${DOTFILESDIR}/vim/ideavimrc ~/.ideavimrc
+backup_and_create_symbolic_link ${DOTFILESDIR}/vim/plug.vim ~/.vim/plug.vim
 # use the same configuration with Vim and Neovim
 backup_and_create_symbolic_link ~/.vim ~/.config/nvim
 backup_and_create_symbolic_link ~/.vimrc ~/.config/nvim/init.vim
+
+echo "Updating/cleaning Vim plugins:"
+vim -c ":PlugInstall | :PlugClean | :qa"
+echo "Updating/cleaning NeoVim plugins:"
+nvim -c ":PlugInstall | :PlugClean | :qa"
 
 # Needed so that gpg-agent.conf can be shared between MacOS and Arch Linux
 if [ "$(uname)" == "Darwin" ]; then

@@ -1,3 +1,10 @@
+" Install plugin manager with plugins
+if has('nvim')
+    source ~/.config/nvim/plug.vim
+else
+    source ~/.vim/plug.vim
+endif
+
 syntax on
 
 set clipboard=unnamedplus
