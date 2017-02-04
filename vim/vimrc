@@ -9,5 +9,5 @@ syntax on
 
 set clipboard=unnamedplus
 
-" make cursor a pipe in insert mode and block in normal mode
-:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" make cursor a pipe in insert mode and a block in normal mode
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
