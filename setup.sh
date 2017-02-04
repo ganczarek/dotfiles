@@ -58,9 +58,9 @@ backup_and_create_symbolic_link ~/.vim ~/.config/nvim
 backup_and_create_symbolic_link ~/.vimrc ~/.config/nvim/init.vim
 
 echo "Updating/cleaning Vim plugins:"
-vim -c ":PlugInstall | :PlugClean | :qa"
+vim -c ":PlugInstall | :PlugClean! | :qa"
 echo "Updating/cleaning NeoVim plugins:"
-nvim -c ":PlugInstall | :PlugClean | :qa"
+nvim -c ":PlugInstall | :PlugClean! | :qa"
 
 # Needed so that gpg-agent.conf can be shared between MacOS and Arch Linux
 if [ "$(uname)" == "Darwin" ]; then
