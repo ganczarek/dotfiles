@@ -50,6 +50,8 @@ backup_and_create_symbolic_link ${DOTFILESDIR}/other/redshift.conf ~/.config/red
 backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg.conf ~/.gnupg/gpg.conf
 backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
+mkdir -p ~/.vim
+mkdir -p ~/.config/nvim
 backup_and_create_symbolic_link ${DOTFILESDIR}/vim/vimrc ~/.vimrc
 backup_and_create_symbolic_link ${DOTFILESDIR}/vim/ideavimrc ~/.ideavimrc
 backup_and_create_symbolic_link ${DOTFILESDIR}/vim/plug.vim ~/.vim/plug.vim
