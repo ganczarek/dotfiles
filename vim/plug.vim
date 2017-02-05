@@ -15,5 +15,6 @@ call plug#begin(s:plugged_dir)
 
 Plug 'tpope/vim-fugitive'                   " Git Wrapper
 Plug 'tpope/vim-surround'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
