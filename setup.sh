@@ -1,5 +1,26 @@
 #!/usr/bin/env bash
 
+# From oh-my-zsh installation script
+change_shell_to_zsh_if_not_already_changed() {
+    TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+    if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
+        # If this platform provides a "chsh" command (not Cygwin), do it, man!
+        if hash chsh >/dev/null 2>&1; then
+          printf "Time to change your default shell to zsh!\n"
+          chsh -s $(grep /zsh$ /etc/shells | tail -1)
+        # Else, suggest the user do so manually.
+        else
+          printf "I can't change your shell automatically because this system does not have chsh.\n"
+          printf "Please manually change your default shell to zsh!\n"
+        fi
+    fi
+}
+
+change_shell_to_zsh_if_not_already_changed
+
+mkdir -p ~/.config
+mkdir -p ~/.gnupg
+
 backup_and_create_symbolic_link() {
   SOURCE=$1
   DEST=$2
@@ -23,17 +44,6 @@ backup_and_create_symbolic_link() {
    echo "Create symbolic: ${DEST} -> ${SOURCE}"
    ln -s ${SOURCE} ${DEST}
 }
-
-# Install oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh)
-if [ ! -n "$ZSH" ]; then
-  ZSH=~/.oh-my-zsh
-fi
-if [ ! -d "$ZSH" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-fi
-
-mkdir -p ~/.config
-mkdir -p ~/.gnupg
 
 # get absolute path to dotfiles directory
 if [ `dirname $0` != "." ]; then
