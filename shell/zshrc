@@ -20,8 +20,11 @@ zplug "themes/robbyrussell",    from:oh-my-zsh
 
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
+# load after oh-my-zsh lib to override key bindings (e.g. ^R)
+zplug "psprint/history-search-multi-word", defer:2
 
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'   # Make zplug manage itself
+# Make zplug manage itself
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
