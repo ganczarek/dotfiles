@@ -23,6 +23,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 # load after oh-my-zsh lib to override key bindings (e.g. ^R)
 zplug "psprint/history-search-multi-word", defer:2
 
+zplug "caarlos0/zsh-git-sync"
+
 # Make zplug manage itself
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
