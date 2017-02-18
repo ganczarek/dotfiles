@@ -9,3 +9,6 @@ xcape -e 'Control_L=Escape'
 
 # autostart apps
 volumeicon &
+
+# key autorepeat with dealy 166ms and rate 50 per sec (20ms)
+xset r rate 166 50
