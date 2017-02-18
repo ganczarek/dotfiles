@@ -70,6 +70,7 @@ backup_and_create_symbolic_link ${DOTFILESDIR}/other/redshift.conf ~/.config/red
 backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg.conf ~/.gnupg/gpg.conf
 backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 backup_and_create_symbolic_link ${DOTFILESDIR}/i3 ~/.config/i3
+backup_and_create_symbolic_link ${DOTFILESDIR}/X11/xprofile ~/.xprofile
 
 mkdir -p ~/.vim
 mkdir -p ~/.config/nvim
