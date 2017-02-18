@@ -69,6 +69,7 @@ backup_and_create_symbolic_link ${DOTFILESDIR}/other/theanorc ~/.theanorc
 backup_and_create_symbolic_link ${DOTFILESDIR}/other/redshift.conf ~/.config/redshift.conf
 backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg.conf ~/.gnupg/gpg.conf
 backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+backup_and_create_symbolic_link ${DOTFILESDIR}/i3 ~/.config/i3
 
 mkdir -p ~/.vim
 mkdir -p ~/.config/nvim
