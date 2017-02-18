@@ -1,0 +1,6 @@
+# start gpg-agent and export SSH auth socket 
+gpg-agent --daemon
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
+# modify keymaps 
+xmodmap ~/.Xmodmap
