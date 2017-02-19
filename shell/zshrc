@@ -31,6 +31,7 @@ zplug "djui/alias-tips"
 # Needs fzy installed. On Mac Os: brew tap jhawthorn/fzy && brew install fzy
 zplug "b4b4r07/enhancd", use:init.sh
 export ENHANCD_FILTER=fzy
+export ENHANCD_DISABLE_DOT=1 # don't use interactive filter with '..'
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
