@@ -74,6 +74,9 @@ if `command -v gpg-agent >/dev/null 2>&1` ; then
     fi
 fi
 
+# Add Anaconda to PATH
+export PATH="/home/rafal/anaconda3/bin:$PATH"
+
 # Source plugins and add commands to $PATH.
 # Run at the very end, otherwise tmux will incorrectly resize in terminal on Mac OS
 zplug load
