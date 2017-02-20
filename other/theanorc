@@ -1,6 +1,7 @@
 [global]
 floatX=float32
 device=gpu
+force_device=true
 
 [cuda]
 root=/opt/cuda
