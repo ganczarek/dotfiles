@@ -154,3 +154,21 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# boarder styles of windows and flaot
+new_window pixel
+new_float pixel
+
+# hide borders on workspaces with only one window visible,
+# but keep them on workspaces with multiple windows visable.
+hide_edge_borders smart
+
+# press workspace key binding twice to switch back to previous workspace
+workspace_auto_back_and_forth yes
+
+# jump to urgent window
+bindsym $mod+x [urgent=latest] focus
+
+# correctly handle floating dialogs
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
