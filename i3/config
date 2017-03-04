@@ -207,3 +207,8 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Pause mode "$mode_system"
+
+# capture entire X server screen 
+bindsym --release Print exec import -window root /tmp/latest-screenshot.png && gimp /tmp/latest-screenshot.png
+# capture selected part of X sercer screen
+bindsym --release $mod+Print exec --no-startup-id import /tmp/latest-screenshot.png && gimp /tmp/latest-screenshot.png
