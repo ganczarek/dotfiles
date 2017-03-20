@@ -15,3 +15,5 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " enabled persistent_undo allowing to undo file changes between sessions
 set undofile
 set undodir=~/.config/nvim/tmp/undo/
+
+let g:airline_theme='wombat'
