@@ -85,6 +85,8 @@ backup_and_create_symbolic_link ${DOTFILESDIR}/vim/plug.vim ~/.vim/plug.vim
 backup_and_create_symbolic_link ~/.vim ~/.config/nvim
 backup_and_create_symbolic_link ~/.vimrc ~/.config/nvim/init.vim
 
+backup_and_create_symbolic_link ${DOTFILESDIR}/scripts/kb-light.py ~/.config/kb-light.py
+
 echo "Updating/cleaning Vim plugins"
 vim -c ":PlugInstall | :PlugClean! | :qa"
 echo "Updating/cleaning NeoVim plugins"
