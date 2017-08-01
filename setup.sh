@@ -66,7 +66,9 @@ backup_and_create_symbolic_link ${DOTFILESDIR}/shell/tmux.conf ~/.tmux.conf
 backup_and_create_symbolic_link ${DOTFILESDIR}/shell/Xmodmap ~/.Xmodmap
 backup_and_create_symbolic_link ${DOTFILESDIR}/git/gitconfig ~/.gitconfig
 backup_and_create_symbolic_link ${DOTFILESDIR}/other/theanorc ~/.theanorc
-backup_and_create_symbolic_link ${DOTFILESDIR}/other/redshift.conf ~/.config/redshift.conf
+mkdir -p ~/.config/redshift/hooks
+backup_and_create_symbolic_link ${DOTFILESDIR}/other/redshift/redshift.conf ~/.config/redshift.conf
+backup_and_create_symbolic_link ${DOTFILESDIR}/other/redshift/hooks/brightness.sh ~/.config/redshift/hooks/brightness.sh
 backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg.conf ~/.gnupg/gpg.conf
 backup_and_create_symbolic_link ${DOTFILESDIR}/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 backup_and_create_symbolic_link ${DOTFILESDIR}/i3 ~/.config/i3
