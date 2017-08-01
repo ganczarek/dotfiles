@@ -212,3 +212,8 @@ bindsym $mod+Pause mode "$mode_system"
 bindsym --release Print exec import -window root /tmp/latest-screenshot.png && gimp /tmp/latest-screenshot.png
 # capture selected part of X sercer screen
 bindsym --release $mod+Print exec --no-startup-id import /tmp/latest-screenshot.png && gimp /tmp/latest-screenshot.png
+
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
