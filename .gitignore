@@ -1,5 +1,2 @@
-.idea/
-*.iml
-
 .vagrant/
 other/keras/models/
