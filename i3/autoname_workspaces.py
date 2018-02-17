@@ -52,20 +52,27 @@ WINDOW_ICONS = {
     'darktable': fa.icons['picture-o'],
     'evince': fa.icons['file-pdf-o'],
     'feh': fa.icons['picture-o'],
-    'firefox': fa.icons['firefox'],
     'google-chrome': fa.icons['chrome'],
+    'chromium': fa.icons['chrome'],
+    'chromium-browser': fa.icons['chrome'],
     'gpick': fa.icons['eyedropper'],
+    'gnome-terminal-server': fa.icons['terminal'],
     'kicad': fa.icons['microchip'],
     'libreoffice': fa.icons['file-text-o'],
+    'libreoffice-calc': fa.icons['file-text-o'],
     'mupdf': fa.icons['file-pdf-o'],
-    'spotify': fa.icons['music'],  # could also use the 'spotify' icon
-    'steam': fa.icons['steam'],
     'subl': fa.icons['file-text-o'],
     'subl3': fa.icons['file-text-o'],
     'thunar': fa.icons['files-o'],
     'urxvt': fa.icons['terminal'],
     'xfce4-terminal': fa.icons['terminal'],
     'zenity': fa.icons['window-maximize'],
+    'vlc': fa.icons['video-camera'],
+    'jetbrains-idea-ce': fa.icons['code'],
+    'calibre': fa.icons['book'],
+    'nautilus': fa.icons['home'],
+    'skypeforlinux': fa.icons['skype'],
+    'gimp': fa.icons['picture-o'],
 }
 
 # This icon is used for any application not in the list above
@@ -80,8 +87,10 @@ def icon_for_window(window):
             cls = cls.lower()  # case-insensitive matching
             if cls in WINDOW_ICONS:
                 return WINDOW_ICONS[cls]
-    logging.info(
-        'No icon available for window with classes: %s' % str(classes))
+            # check for exact fontawesome icon match, I expect it can rarely go wrong
+            elif cls in fa.icons:
+                return fa.icons[cls]
+    logging.info('No icon available for window with classes: %s' % str(classes))
     return DEFAULT_ICON
 
 
