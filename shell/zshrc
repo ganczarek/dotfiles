@@ -53,7 +53,9 @@ export VISUAL="vim"
 
 # pull and rebase all repositories you can list within current dir
 alias rg-git-pull-rebase-all="ls | xargs -I % sh -xc 'cd % && git diff-index --quiet HEAD -- && git pull --rebase'"
-if [[ ! $TERM =~ screen && $XDG_CURRENT_DESKTOP != i3 ]]; then
+
+# Don't use tmux inside emacs (dumb or empty $TERM')
+if [[ $TERM != "dumb" && $TERM != "" && ! $TERM =~ screen && $XDG_CURRENT_DESKTOP != i3 ]]; then
     exec tmux new-session -A -s main
 fi
 
