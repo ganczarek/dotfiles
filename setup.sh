@@ -62,6 +62,7 @@ else
     DOTFILESDIR="`pwd`"
 fi
 backup_and_create_symbolic_link ${DOTFILESDIR}/shell/zshrc ~/.zshrc
+backup_and_create_symbolic_link ${DOTFILESDIR}/shell/zshenv ~/.zshenv
 backup_and_create_symbolic_link ${DOTFILESDIR}/shell/tmux.conf ~/.tmux.conf
 backup_and_create_symbolic_link ${DOTFILESDIR}/shell/Xmodmap ~/.Xmodmap
 backup_and_create_symbolic_link ${DOTFILESDIR}/git/gitconfig ~/.gitconfig
@@ -76,6 +77,7 @@ backup_and_create_symbolic_link ${DOTFILESDIR}/i3 ~/.config/i3
 backup_and_create_symbolic_link ${DOTFILESDIR}/X11/xprofile ~/.xprofile
 backup_and_create_symbolic_link ${DOTFILESDIR}/other/volumeicon ~/.config/volumeicon
 backup_and_create_symbolic_link ${DOTFILESDIR}/other/keras ~/.keras
+backup_and_create_symbolic_link ${DOTFILESDIR}/emacs/spacemacs ~/.spacemacs
 
 mkdir -p ~/.vim
 mkdir -p ~/.config/nvim

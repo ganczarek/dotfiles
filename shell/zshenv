@@ -1,0 +1,9 @@
+# Append Anaconda, so it doesn't override system Python
+export PATH="$PATH:/home/rafal/anaconda3/bin"
+
+[[ ! -d ~/.go ]] && mkdir ~/.go
+export GOPATH=`echo ~/.go`
+
+if `command -v ruby >/dev/null 2>&1`; then
+    PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+fi
