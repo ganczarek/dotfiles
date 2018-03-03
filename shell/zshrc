@@ -74,16 +74,6 @@ if `command -v gpg-agent >/dev/null 2>&1` ; then
     fi
 fi
 
-# Append Anaconda, so it doesn't override system Python
-export PATH="$PATH:/home/rafal/anaconda3/bin"
-
-[[ ! -d ~/.go ]] && mkdir ~/.go
-export GOPATH=`echo ~/.go`
-
-if `command -v ruby >/dev/null 2>&1`; then
-    PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-fi
-
 # Source plugins and add commands to $PATH.
 # Run at the very end, otherwise tmux will incorrectly resize in terminal on Mac OS
 zplug load
