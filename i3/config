@@ -225,6 +225,7 @@ exec --no-startup-id /usr/bin/firefox
 exec --no-startup-id /usr/bin/nextcloud
 exec --no-startup-id /usr/bin/keepassxc
 exec --no-startup-id /usr/bin/qnapi
+exec --no-startup-id /usr/bin/nm-applet
 
 # requires xorg-xprop (pacman), i3ipc (pip) and fontawesome (pip)
 exec_always ~/.config/i3/autoname_workspaces.py &
