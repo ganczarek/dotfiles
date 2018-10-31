@@ -221,7 +221,6 @@ bindsym XF86KbdBrightnessUp exec ~/.config/kb-light.py --up
 bindsym XF86KbdBrightnessDown exec ~/.config/kb-light.py --down
 
 # autostart applications
-exec --no-startup-id /usr/bin/firefox
 exec --no-startup-id /usr/bin/nextcloud
 exec --no-startup-id /usr/bin/keepassxc
 exec --no-startup-id /usr/bin/qnapi
