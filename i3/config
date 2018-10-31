@@ -182,6 +182,9 @@ hide_edge_borders smart
 # press workspace key binding twice to switch back to previous workspace
 workspace_auto_back_and_forth yes
 
+# switch back to previous active workspace with mod+` key 
+bindsym $mod+grave workspace back_and_forth
+
 # jump to urgent window
 bindsym $mod+x [urgent=latest] focus
 
