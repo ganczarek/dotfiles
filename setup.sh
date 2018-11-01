@@ -67,6 +67,7 @@ backup_and_create_symbolic_link ${DOTFILESDIR}/shell/tmux.conf ~/.tmux.conf
 backup_and_create_symbolic_link ${DOTFILESDIR}/shell/Xmodmap ~/.Xmodmap
 backup_and_create_symbolic_link ${DOTFILESDIR}/git/gitconfig ~/.gitconfig
 backup_and_create_symbolic_link ${DOTFILESDIR}/git/gitignore ~/.gitignore
+backup_and_create_symbolic_link ${DOTFILESDIR}/git/tigrc ~/.tigrc
 backup_and_create_symbolic_link ${DOTFILESDIR}/other/theanorc ~/.theanorc
 mkdir -p ~/.config/redshift/hooks
 backup_and_create_symbolic_link ${DOTFILESDIR}/other/redshift/redshift.conf ~/.config/redshift.conf
