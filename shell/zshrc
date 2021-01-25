@@ -81,6 +81,10 @@ if `command -v gpg-agent >/dev/null 2>&1` ; then
     fi
 fi
 
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
 # Source plugins and add commands to $PATH.
 # Run at the very end, otherwise tmux will incorrectly resize in terminal on Mac OS
 zplug load
