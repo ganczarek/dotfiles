@@ -88,3 +88,14 @@ fi
 # Source plugins and add commands to $PATH.
 # Run at the very end, otherwise tmux will incorrectly resize in terminal on Mac OS
 zplug load
+
+
+# do it after zplug load to get zsh completion for gcloud to work properly
+if [ "$(uname)" = "Darwin" ]; then
+    GOOGLE_CLOUD_SDK_PATH="$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
+    if [ -d $GOOGLE_CLOUD_SDK_PATH ]; then
+        export CLOUDSDK_PYTHON="$(brew --prefix)/opt/python@3.8/libexec/bin/python"
+        source "$GOOGLE_CLOUD_SDK_PATH/path.zsh.inc"
+        source "$GOOGLE_CLOUD_SDK_PATH/completion.zsh.inc"
+    fi
+fi
