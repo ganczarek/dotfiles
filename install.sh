@@ -52,3 +52,5 @@ change_shell_to_zsh_if_not_already_changed
 install_zinit
 
 stow zsh
+stow git
+stow tig
