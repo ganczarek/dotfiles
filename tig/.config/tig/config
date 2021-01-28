@@ -1,4 +1,4 @@
-# allows to ammend commit in status view with 'a' binding
+# allows to amend commit in status view with 'a' binding
 bind status a !?git commit --amend
 
 #bind main = !git commit --fixup=%(commit)
