@@ -48,9 +48,26 @@ install_zinit() {
   fi
 }
 
+setup_gpg_agent() {
+  # Needed so that gpg-agent.conf can be shared between MacOS and Arch Linux
+  if [ "$(uname)" == "Darwin" ]; then
+    if [ -e /usr/local/bin/pinentry-mac ] && [ ! -e /usr/local/bin/pinentry-crossplatform ]; then
+      echo "Link GnuPG pinentry for Mac"
+      sudo ln -s /usr/local/bin/pinentry-mac /usr/local/bin/pinentry-crossplatform
+    fi
+  else
+    if [ -e /usr/bin/pinentry ] && [ ! -e /usr/local/bin/pinentry-crossplatform ]; then
+      echo "Link GnuPG pinentry for Arch"
+      sudo ln -s /usr/bin/pinentry /usr/local/bin/pinentry-crossplatform
+    fi
+  fi
+}
+
 change_shell_to_zsh_if_not_already_changed
 install_zinit
+setup_gpg_agent
 
 stow zsh
 stow git
 stow tig
+stow gnupg

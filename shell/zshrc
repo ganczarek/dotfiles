@@ -64,22 +64,6 @@ if `command -v tmux >/dev/null 2>&1`; then
    fi
 fi
 
-if `command -v gpg-agent >/dev/null 2>&1` ; then
-    # Since GPG 2.1, gpg-agent auto-starts on demand (https://www.gnupg.org/faq/whats-new-in-2.1.html#autostart)
-    # On MacOs it's still v2.0
-    GPG_VERSION=`gpg-agent --version 2>&1 >/dev/null | grep gpg-agent | grep -oE '[0-9]+\.[0-9]+'`
-    if [ `echo "$GPG_VERSION < 2.1" | bc` -eq 1 ]; then
-        # Start gpg-agent or use existing agent. Requires gpg-agent and pinentry-mac.
-        if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
-            source ~/.gnupg/.gpg-agent-info
-            export GPG_AGENT_INFO
-            GPG_TTY=$(tty)
-            export GPG_TTY
-        else
-            eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
-        fi
-    fi
-fi
 
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
