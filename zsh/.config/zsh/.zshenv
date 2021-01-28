@@ -5,3 +5,5 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export EDITOR="nvim"
 
 export LANG="en_GB.UTF-8"
+
+export GPG_TTY=$(tty)
