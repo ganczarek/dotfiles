@@ -1,0 +1,1 @@
+for file in $XDG_CONFIG_HOME/zsh/zsh.d/*; do source $file; done
