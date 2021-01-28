@@ -71,3 +71,4 @@ stow zsh
 stow git
 stow tig
 stow gnupg
+stow tmux
