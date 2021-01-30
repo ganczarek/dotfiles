@@ -72,3 +72,4 @@ stow git
 stow tig
 stow gnupg
 stow tmux
+stow termite
