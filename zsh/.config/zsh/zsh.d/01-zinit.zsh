@@ -18,3 +18,12 @@ zinit ice lucid nocompile && zinit load MenkeTechnologies/zsh-very-colorful-manu
 
 zinit wait lucid for OMZL::git.zsh OMZP::git
 
+export ENHANCD_FILTER=fzf
+export ENHANCD_DISABLE_DOT=1 # don't use interactive filter with '..'
+zinit wait lucid for b4b4r07/enhancd
+
+# init fasd and add few aliases
+zinit wait lucid for OMZP::fasd
+# z tab completion with fzf search and fasd
+zinit wait lucid for wookayin/fzf-fasd
+
