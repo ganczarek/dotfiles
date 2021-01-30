@@ -11,3 +11,8 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 zinit wait lucid for atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions
 
+zinit wait lucid for atinit"zicompinit; zicdreplay" zdharma/fast-syntax-highlighting
+
+# adds color to man pages
+zinit ice lucid nocompile && zinit load MenkeTechnologies/zsh-very-colorful-manuals
+
