@@ -16,3 +16,5 @@ zinit wait lucid for atinit"zicompinit; zicdreplay" zdharma/fast-syntax-highligh
 # adds color to man pages
 zinit ice lucid nocompile && zinit load MenkeTechnologies/zsh-very-colorful-manuals
 
+zinit wait lucid for OMZL::git.zsh OMZP::git
+
