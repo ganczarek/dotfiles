@@ -63,9 +63,21 @@ setup_gpg_agent() {
   fi
 }
 
+install_exa() {
+  if ! command -v exa >/dev/null 2>&1; then
+    echo "Installing exa - a modern replacement for ls"
+    if [ "$(uname)" == "Darwin" ]; then
+      brew install exa
+    else
+      sudo pacman -S exa
+    fi
+  fi
+}
+
 change_shell_to_zsh_if_not_already_changed
 install_zinit
 setup_gpg_agent
+install_exa
 
 stow zsh
 stow git
