@@ -1,28 +1,39 @@
 #!/usr/bin/env bash
 
+command_exists() {
+  command -v "$@" >/dev/null 2>&1
+}
+
+is_mac() {
+  [ "$(uname)" == "Darwin" ]
+}
+
+install() {
+  COMMAND=$1
+  BREW_PACKAGE=${2:-$COMMAND}
+  PACMAN_PACKAGE=${3:-$BREW_PACKAGE}
+  if ! command_exists $COMMAND; then
+    echo "Installing $COMMAND (MacOS: $BREW_PACKAGE, Arch: $PACMAN_PACKAGE)"
+    if is_mac; then
+      brew install $BREW_PACKAGE
+    else
+      sudo pacman -S $PACMAN_PACKAGE
+    fi
+  fi
+}
+
 # inspired by oh-my-zsh installation script
 change_shell_to_zsh_if_not_already_changed() {
   if [ "$(basename -- "$SHELL")" = "zsh" ]; then
     return
   fi
 
-  if ! command -v chsh >/dev/null 2>&1; then
+  if command_exists chsh; then
     echo "Shell can't be changed automatically, because system does not have chsh."
     exit 1
   fi
 
-  if ! command -v zsh &>/dev/null; then
-    if [ "$(uname)" == "Darwin" ]; then
-      echo "Install the latest version of zsh with Homebrew"
-      brew install zsh
-    elif command -v pacman &>/dev/null; then
-      echo "Install the latest version of zsh with Pacman"
-      sudo pacman -S zsh
-    else
-      echo "Unsupported system without zsh. Install zsh manually or update the script."
-      exit 1
-    fi
-  fi
+  install zshen zsh
 
   ZSH_BIN_PATH=$(grep /zsh /etc/shells | tail -1)
   echo "Use chsh to change shell to $ZSH_BIN_PATH"
@@ -34,10 +45,7 @@ change_shell_to_zsh_if_not_already_changed() {
 }
 
 install_zinit() {
-  if ! command -v git >/dev/null 2>&1; then
-    echo "You need git to install zinit (zsh plugin manager)!"
-    exit 1
-  fi
+  install git
 
   ZINIT_HOME=~/.zinit
   if ! test -d "$ZINIT_HOME"; then
@@ -50,7 +58,7 @@ install_zinit() {
 
 setup_gpg_agent() {
   # Needed so that gpg-agent.conf can be shared between MacOS and Arch Linux
-  if [ "$(uname)" == "Darwin" ]; then
+  if is_mac; then
     if [ -e /usr/local/bin/pinentry-mac ] && [ ! -e /usr/local/bin/pinentry-crossplatform ]; then
       echo "Link GnuPG pinentry for Mac"
       sudo ln -s /usr/local/bin/pinentry-mac /usr/local/bin/pinentry-crossplatform
@@ -63,21 +71,14 @@ setup_gpg_agent() {
   fi
 }
 
-install_exa() {
-  if ! command -v exa >/dev/null 2>&1; then
-    echo "Installing exa - a modern replacement for ls"
-    if [ "$(uname)" == "Darwin" ]; then
-      brew install exa
-    else
-      sudo pacman -S exa
-    fi
-  fi
-}
+
 
 change_shell_to_zsh_if_not_already_changed
 install_zinit
 setup_gpg_agent
-install_exa
+install exa
+install fzf
+install fasd
 
 stow zsh
 stow git
