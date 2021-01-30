@@ -1,3 +1,5 @@
+typeset -g ZPLG_MOD_DEBUG=1
+
 declare -A ZINIT
 export ZINIT[HOME_DIR]="$HOME/.zinit"
 export ZINIT[BIN_DIR]="$ZINIT[HOME_DIR]/bin"
@@ -26,4 +28,21 @@ zinit wait lucid for b4b4r07/enhancd
 zinit wait lucid for OMZP::fasd
 # z tab completion with fzf search and fasd
 zinit wait lucid for wookayin/fzf-fasd
+
+zinit wait lucid for \
+  OMZP::aws \
+  OMZP::gcloud \
+  OMZP::mvn \
+  OMZP::sbt \
+  as"completion" OMZP::scala/_scala \
+  as"completion" OMZP::docker/_docker \
+  OMZP::docker-compose \
+  OMZP::pip
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+zinit wait lucid atload"zicompinit; zicdreplay" blockf for \
+  zsh-users/zsh-completions
 
