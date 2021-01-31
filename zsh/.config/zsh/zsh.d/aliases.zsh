@@ -7,3 +7,6 @@ if command -v exa >/dev/null 2>&1; then
   alias ll='exa -al'
   alias ls='exa'
 fi
+
+# pull and rebase all repositories you can list within current dir
+alias rg-git-pull-rebase-all="ls | xargs -I % sh -xc 'cd % && git diff-index --quiet HEAD -- && git pull --rebase'"

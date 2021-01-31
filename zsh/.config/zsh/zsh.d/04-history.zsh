@@ -1,6 +1,6 @@
 zinit wait lucid for OMZL::history.zsh
 
-zinit load zdharma/history-search-multi-word
+zinit wait lucid for zdharma/history-search-multi-word
 
 export HIST_STAMPS="yyyy-mm-dd"
 export HISTSIZE=100000
