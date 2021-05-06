@@ -12,13 +12,25 @@ install() {
   COMMAND=$1
   BREW_PACKAGE=${2:-$COMMAND}
   PACMAN_PACKAGE=${3:-$BREW_PACKAGE}
-  if ! command_exists $COMMAND; then
-    echo "Installing $COMMAND (MacOS: $BREW_PACKAGE, Arch: $PACMAN_PACKAGE)"
-    if is_mac; then
-      brew install $BREW_PACKAGE
-    else
-      sudo pacman -S $PACMAN_PACKAGE
-    fi
+  install_macos $COMMAND $BREW_PACKAGE
+  install_linux $COMMAND $PACKMAN_PACKAGE
+}
+
+install_macos() {
+  COMMAND=$1
+  BREW_PACKAGE=${2:-$COMMAND}
+  if is_mac && ! command_exists $COMMAND; then
+    echo "Installing $COMMAND (brew package: $BREW_PACKAGE)"	  
+    brew install $BREW_PACKAGE
+  fi
+}
+
+install_linux() {
+  COMMAND=$1
+  PACMAN_PACKAGE=${2:-$COMMAND}
+  if ! is_mac && ! command_exists $COMMAND; then
+    echo "Installing $COMMAND (pacman package: $PACMAN_PACKAGE)"
+    sudo pacman -S $PACMAN_PACKAGE
   fi
 }
 
@@ -79,6 +91,8 @@ setup_gpg_agent
 install exa
 install fzf
 install fasd
+install_macos reattach-to-user-namespace
+install_linux xclip
 
 stow zsh
 stow git
