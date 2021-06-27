@@ -20,7 +20,7 @@ install_macos() {
   COMMAND=$1
   BREW_PACKAGE=${2:-$COMMAND}
   if is_mac && ! command_exists $COMMAND; then
-    echo "Installing $COMMAND (brew package: $BREW_PACKAGE)"	  
+    echo "Installing $COMMAND (brew package: $BREW_PACKAGE)"
     brew install $BREW_PACKAGE
   fi
 }
@@ -83,8 +83,6 @@ setup_gpg_agent() {
   fi
 }
 
-
-
 change_shell_to_zsh_if_not_already_changed
 install_zinit
 setup_gpg_agent
@@ -99,5 +97,9 @@ stow git
 stow tig
 stow gnupg
 stow tmux
-stow termite
 stow nix
+
+if ! is_mac; then
+  stow termite
+  stow X11
+fi

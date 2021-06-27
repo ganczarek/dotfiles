@@ -1,0 +1,8 @@
+# modify keymaps (e.g. map CapsLock to left Ctrl)
+xmodmap ~/.Xmodmap
+
+# when pressed alone work as Esc, otherwise work as modifier
+xcape -e 'Control_L=Escape'
+
+# key autorepeat with delay 166ms and rate 50 per sec (20ms)
+xset r rate 166 50
