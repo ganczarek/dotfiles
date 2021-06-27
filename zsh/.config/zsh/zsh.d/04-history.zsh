@@ -1,4 +1,4 @@
-zinit wait lucid for OMZL::history.zsh
+zinit snippet OMZL::history.zsh
 
 zinit wait lucid for zdharma/history-search-multi-word
 
