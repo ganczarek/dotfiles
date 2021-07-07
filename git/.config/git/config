@@ -72,3 +72,8 @@
 
 [github]
     user = ganczarek
+
+[user]
+    name = Rafal Ganczarek
+    email = 16733667+ganczarek@users.noreply.github.com
+    signingkey = CBC5CFE86E790712
