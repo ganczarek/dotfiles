@@ -1,4 +1,13 @@
 .vagrant/
 other/keras/models/
 
+# GPG files and dirs in .gnupg to ignore
+gnupg/.gnupg/openpgp-revocs.d/
+gnupg/.gnupg/private-keys-v1.d/
+gnupg/.gnupg/pubring.kbx
+gnupg/.gnupg/trustdb.gpg
+gnupg/.gnupg/S.gpg-agent*
+
+zsh/.config/zsh/.zsh_history
 zsh/.config/zsh/.zcompdump
+zsh/.config/zsh/.zcompcache
