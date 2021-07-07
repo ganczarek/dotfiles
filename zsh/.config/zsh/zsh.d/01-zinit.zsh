@@ -24,3 +24,6 @@ zinit wait lucid for b4b4r07/enhancd
 zinit wait lucid for OMZP::fasd
 # z tab completion with fzf search and fasd
 zinit wait lucid for wookayin/fzf-fasd
+
+zinit wait lucid for OMZP::aws # AWS plugin (e.g. acp command to change profiles)
+export SHOW_AWS_PROMPT=false   # let Spaceship to add AWS profile to the prompt
