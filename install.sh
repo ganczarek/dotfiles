@@ -85,21 +85,36 @@ setup_gpg_agent() {
 
 change_shell_to_zsh_if_not_already_changed
 install_zinit
+
+install_macos pinentry-mac
+install_linux pinentry
 setup_gpg_agent
+
 install exa
 install fzf
 install fasd
 install_macos reattach-to-user-namespace
 install_linux xclip
+install stow
+install tmux
+install tig
 
-stow zsh
-stow git
-stow tig
-stow gnupg
-stow tmux
-stow nix
+install gpg gnupg
+chown -R "$(whoami)" ~/.gnupg/
+chmod 600 ~/.gnupg/*
+chmod 700 ~/.gnupg
+
+stow --target="$HOME" zsh
+stow --target="$HOME" git
+stow --target="$HOME" tig
+stow --target="$HOME" gnupg
+stow --target="$HOME" tmux
 
 if ! is_mac; then
-  stow termite
-  stow X11
+  stow --target="$HOME" termite
+  stow --target="$HOME" X11
+  stow --target="$HOME" nix
+else
+  stow --target="$HOME" iterm2
+  sh ./osx/defaults.sh
 fi
