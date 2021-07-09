@@ -98,6 +98,8 @@ install_linux xclip
 install stow
 install tmux
 install tig
+install nvim
+install asdf
 
 install gpg gnupg
 chown -R "$(whoami)" ~/.gnupg/
