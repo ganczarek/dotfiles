@@ -1,0 +1,7 @@
+*
+
+!.zshenv
+!.zshrc
+
+!*/
+!zsh.d/*
