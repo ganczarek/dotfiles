@@ -53,10 +53,6 @@
     # Automatically correct and execute mistyped commands
     autocorrect = 1
 
-[include]
-    # Separate file for non-public configuration
-    path = ~/.gitconfig.local
-
 [push]
 	default = simple
 
@@ -77,3 +73,7 @@
     name = Rafal Ganczarek
     email = 16733667+ganczarek@users.noreply.github.com
     signingkey = CBC5CFE86E790712
+
+[include]
+    # Separate file for non-public configuration
+    path = ~/.gitconfig.local
