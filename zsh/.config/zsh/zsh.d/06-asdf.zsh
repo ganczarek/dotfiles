@@ -1,3 +1,7 @@
+if [[ -d /opt/asdf-vm ]]; then
+  . /opt/asdf-vm/asdf.sh
+fi
+
 zinit wait lucid for OMZP::asdf
 
 ASDF_PLUGINS=(
