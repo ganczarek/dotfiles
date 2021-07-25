@@ -28,10 +28,17 @@ install_macos() {
 install_linux() {
   COMMAND=$1
   PACMAN_PACKAGE=${2:-$COMMAND}
+  PACKAGE_MANAGER=${3:-sudo pacman}
   if ! is_mac && ! command_exists $COMMAND; then
-    echo "Installing $COMMAND (pacman package: $PACMAN_PACKAGE)"
-    sudo pacman -S $PACMAN_PACKAGE
+    echo "Installing $COMMAND (package: $PACMAN_PACKAGE)"
+    $PACKAGE_MANAGER -S $PACMAN_PACKAGE
   fi
+}
+
+install_aur() {
+  COMMAND=$1
+  AUR_PACKAGE=${2:-$COMMAND}
+  install_linux $COMMAND $AUR_PACKAGE yay
 }
 
 # inspired by oh-my-zsh installation script
@@ -99,12 +106,13 @@ install stow
 install tmux
 install tig
 install nvim
-install asdf
+install_macos asdf
+install_aur asdf asdf-vm
 
 install gpg gnupg
-chown -R "$(whoami)" ~/.gnupg/
-chmod 600 ~/.gnupg/*
-chmod 700 ~/.gnupg
+#chown -R "$(whoami)" ~/.gnupg/
+#chmod 600 ~/.gnupg/*
+#chmod 700 ~/.gnupg
 
 stow --target="$HOME" zsh
 stow --target="$HOME" git
