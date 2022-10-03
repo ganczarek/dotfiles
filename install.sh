@@ -108,6 +108,7 @@ install tig
 install nvim
 install_macos asdf
 install_aur asdf asdf-vm
+install alacritty
 
 install gpg gnupg
 #chown -R "$(whoami)" ~/.gnupg/
@@ -119,9 +120,9 @@ stow --target="$HOME" git
 stow --target="$HOME" tig
 stow --target="$HOME" gnupg
 stow --target="$HOME" tmux
+stow --target="$HOME" alacritty
 
 if ! is_mac; then
-  stow --target="$HOME" termite
   stow --target="$HOME" X11
   stow --target="$HOME" nix
 else
