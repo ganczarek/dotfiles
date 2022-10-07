@@ -1,4 +1,4 @@
-typeset -g ZPLG_MOD_DEBUG=1
+# typeset -g ZPLG_MOD_DEBUG=1
 
 declare -A ZINIT
 export ZINIT[HOME_DIR]="$HOME/.zinit"
