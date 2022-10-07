@@ -109,6 +109,7 @@ install nvim
 install_macos asdf
 install_aur asdf asdf-vm
 install alacritty
+install difftastic
 
 install gpg gnupg
 #chown -R "$(whoami)" ~/.gnupg/
