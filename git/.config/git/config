@@ -76,4 +76,4 @@
 
 [include]
     # Separate file for non-public configuration
-    path = ~/.gitconfig.local
+    path = ~/.config/git/config.local
