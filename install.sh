@@ -80,7 +80,7 @@ setup_gpg_agent() {
   if is_mac; then
     if [ -e /usr/local/bin/pinentry-mac ] && [ ! -e /usr/local/bin/pinentry-crossplatform ]; then
       echo "Link GnuPG pinentry for Mac"
-      sudo ln -s /usr/local/bin/pinentry-mac /usr/local/bin/pinentry-crossplatform
+      ln -s /usr/local/bin/pinentry-mac /usr/local/bin/pinentry-crossplatform
     fi
   else
     if [ -e /usr/bin/pinentry ] && [ ! -e /usr/local/bin/pinentry-crossplatform ]; then
