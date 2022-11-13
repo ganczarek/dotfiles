@@ -337,3 +337,5 @@ bindsym $mod+Shift+less move container to output left
 # move workspace to other monitor
 bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
+
+bindsym $mod+Tab  workspace back_and_forth
