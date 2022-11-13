@@ -126,6 +126,7 @@ stow --target="$HOME" alacritty
 if ! is_mac; then
   stow --target="$HOME" X11
   stow --target="$HOME" nix
+  stow --target="$HOME" i3
 else
   stow --target="$HOME" iterm2
   sh ./osx/defaults.sh
