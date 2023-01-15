@@ -129,7 +129,6 @@ stow --target="$HOME" git
 stow --target="$HOME" tig
 stow --target="$HOME" gnupg
 stow --target="$HOME" tmux
-stow --target="$HOME" alacritty
 
 if ! is_mac; then
   stow --target="$HOME" X11
