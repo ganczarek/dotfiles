@@ -90,6 +90,13 @@ setup_gpg_agent() {
   fi
 }
 
+install_home_manager() {
+  nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+  nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager
+  nix-channel --update
+  nix-shell '<home-manager>' -A install
+}
+
 change_shell_to_zsh_if_not_already_changed
 install_zinit
 
@@ -110,6 +117,7 @@ install_macos asdf
 install_aur asdf asdf-vm
 install alacritty
 install difftastic
+install_linux nix
 
 install gpg gnupg
 #chown -R "$(whoami)" ~/.gnupg/
@@ -131,3 +139,6 @@ else
   stow --target="$HOME" iterm2
   sh ./osx/defaults.sh
 fi
+
+install_home_manager
+home-manager switch
