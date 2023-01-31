@@ -22,6 +22,7 @@
   imports = [
     ./alacritty.nix
     ./git.nix
+    ./github-cli.nix
     ./gpg.nix
     ./neovim.nix
     ./zsh/zsh.nix
