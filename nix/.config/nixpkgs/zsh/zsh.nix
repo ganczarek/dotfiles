@@ -35,8 +35,6 @@
       export LANG="en_GB.UTF-8"
       # https://nixos.wiki/wiki/Locales
       export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
-
-      export GPG_TTY=''$(tty)
     '';
 
     initExtra = ''
