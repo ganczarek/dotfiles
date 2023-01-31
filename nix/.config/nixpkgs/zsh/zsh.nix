@@ -4,7 +4,14 @@
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
-    
+
+    history = {
+      path = "$ZDOTDIR/.zsh_history";
+      size = 10000000;
+      save = 10000000;
+      extended = true;
+    };
+
     shellAliases = {
       gnuls = "/bin/ls";
       ls = "exa";
@@ -34,6 +41,8 @@
 
     initExtra = ''
       for file in ''$XDG_CONFIG_HOME/zsh/zsh.d/*; do source $file; done
+
+      setopt hist_reduce_blanks # Remove superfluous blanks before recording entry.
     '';
 
   };
