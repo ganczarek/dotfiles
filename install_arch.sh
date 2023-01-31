@@ -45,15 +45,63 @@ install_home_manager() {
     nix-shell '<home-manager>' -A install
 }
 
+# From oh-my-zsh installation script
+change_shell_to_zsh_if_not_already_changed() {
+    TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+    if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
+        # If this platform provides a "chsh" command (not Cygwin), do it, man!
+        if hash chsh >/dev/null 2>&1; then
+            if [ "$(uname)" == "Darwin" ]; then
+                echo "Install the latest version of zsh with Homebrew"
+                brew install zsh
+                # Change shell to zsh!
+                ZSH_LOCAL="/usr/local/bin/zsh"
+                grep "${ZSH_LOCAL}" /etc/shells || \
+                    (echo "Add ${ZSH_LOCAL} to /etc/shells" && sudo sh -c "echo '${ZSH_LOCAL}' >> /etc/shells")
+                chsh -s ${ZSH_LOCAL}
+            else
+                printf "Time to change your default shell to zsh!\n"
+                chsh -s $(grep /zsh$ /etc/shells | tail -1)
+            fi
+        # Else, suggest the user do so manually.
+        else
+          printf "I can't change your shell automatically because this system does not have chsh.\n"
+          printf "Please manually change your default shell to zsh!\n"
+        fi
+    fi
+}
+
+install_zinit() {
+  ZINIT_HOME=~/.zinit
+  if ! test -d "$ZINIT_HOME"; then
+    mkdir $ZINIT_HOME
+    chmod og-w $ZINIT_HOME
+
+    git clone https://github.com/zdharma-continuum/zinit.git $ZINIT_HOME/bin
+  fi
+}
+
 ARCH_PACKAGES=(
+    # pre-config dependencies
     nix
     stow
-    tig
+
+    # shell
+    zsh
+    exa
+    fzf
+    fasd
+
     alacritty
+    tig
+    neovim
 )
 
 sudo pacman -S --needed --noconfirm "${ARCH_PACKAGES[@]}"
 
 stow --target="$HOME" nix
 configure_nix
+install_zinit
+change_shell_to_zsh_if_not_already_changed
 install_home_manager
+home-manager switch
