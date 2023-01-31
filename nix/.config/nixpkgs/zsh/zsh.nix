@@ -10,7 +10,6 @@
       ls = "exa";
       l = "exa -l";
       la = "exa -la";
-      vim = "nvim";
       # tmux devs refuse to support XDG, so use an alias as a workaround (see https://github.com/tmux/tmux/issues/142)
       tmux = "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf";
       # pull and rebase all repositories you can list within current dir
