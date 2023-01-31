@@ -95,6 +95,7 @@ ARCH_PACKAGES=(
 
     alacritty
     tig
+    difftastic
 )
 
 sudo pacman -S --needed --noconfirm "${ARCH_PACKAGES[@]}"
