@@ -21,5 +21,12 @@
 
   imports = [
     ./alacritty.nix
+    ./zsh/zsh.nix
   ];
+
+  nixpkgs.overlays = [
+    # use zsh installed by pacman
+    (self: super: { zsh = pkgs.hello; })
+  ];
+
 }
