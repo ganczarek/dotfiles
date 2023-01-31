@@ -91,10 +91,10 @@ ARCH_PACKAGES=(
     exa
     fzf
     fasd
+    htop
 
     alacritty
     tig
-    neovim
 )
 
 sudo pacman -S --needed --noconfirm "${ARCH_PACKAGES[@]}"
