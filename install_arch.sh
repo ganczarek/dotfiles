@@ -97,6 +97,9 @@ ARCH_PACKAGES=(
     tig
     difftastic
     github-cli
+
+    libfido2
+    yubikey-manager
 )
 
 sudo pacman -S --needed --noconfirm "${ARCH_PACKAGES[@]}"
