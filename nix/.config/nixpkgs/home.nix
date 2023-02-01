@@ -24,6 +24,7 @@
     ./git.nix
     ./github-cli.nix
     ./gpg.nix
+    ./ssh-agent.nix
     ./neovim.nix
     ./zsh/zsh.nix
   ];

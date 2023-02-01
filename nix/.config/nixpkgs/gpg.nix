@@ -3,6 +3,7 @@
 {
   programs.gpg = {
     enable = true;
+    package = pkgs.hello;
     homedir = "${config.xdg.configHome}/gnupg";
 
     # content of gpg.conf
@@ -16,7 +17,7 @@
     defaultCacheTtl = 14400; # 4 hours
     maxCacheTtl = 28800; # 8 hours
     enableScDaemon = false;
-    enableSshSupport = true;
+    enableSshSupport = false;
     pinentryFlavor = null;
     extraConfig = ''
       pinentry-program /usr/bin/pinentry
