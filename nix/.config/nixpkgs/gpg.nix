@@ -3,7 +3,6 @@
 {
   programs.gpg = {
     enable = true;
-    package = pkgs.hello;
     homedir = "${config.xdg.configHome}/gnupg";
 
     # content of gpg.conf
