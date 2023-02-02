@@ -20,7 +20,7 @@
     enableSshSupport = false;
     pinentryFlavor = null;
     extraConfig = ''
-      pinentry-program /usr/bin/pinentry
+      pinentry-program /usr/bin/pinentry-gtk-2
     '';
   };
 }
