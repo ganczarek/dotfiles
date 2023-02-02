@@ -86,13 +86,12 @@ ARCH_PACKAGES=(
     nix
     stow
 
-    # shell
+    # terminal and shell
     zsh
     exa
     fzf
     fasd
     htop
-
     alacritty
     tig
     difftastic
@@ -100,8 +99,8 @@ ARCH_PACKAGES=(
 
     libfido2
     yubikey-manager
-    
     jre-openjdk
+    obsidian
 )
 
 AUR_PACKAGES=(
