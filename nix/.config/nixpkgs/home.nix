@@ -25,6 +25,7 @@
     ./tig.nix
     ./github-cli.nix
     ./gpg.nix
+    ./keepassxc.nix
     ./ssh-agent.nix
     ./neovim.nix
     ./zsh/zsh.nix
