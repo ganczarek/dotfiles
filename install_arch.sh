@@ -100,9 +100,16 @@ ARCH_PACKAGES=(
 
     libfido2
     yubikey-manager
+    
+    jre-openjdk
 )
 
-sudo pacman -S --needed --noconfirm "${ARCH_PACKAGES[@]}"
+AUR_PACKAGES=(
+    jetbrains-toolbox
+)
+
+sudo pacman -Sy --needed --noconfirm "${ARCH_PACKAGES[@]}"
+yay -Sy "${AUR_PACKAGES[@]}"
 
 stow --target="$HOME" nix
 configure_nix
