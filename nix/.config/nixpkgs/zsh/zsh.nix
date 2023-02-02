@@ -29,7 +29,7 @@
       export XDG_DATA_HOME="''$HOME/.local/share"
 
       export EDITOR="nvim"
-      export PATH="''$HOME/.local/bin:''$PATH"
+      export PATH="''$HOME/.local/bin:''$HOME/.local/share/JetBrains/Toolbox/scripts:''$PATH"
       export NIX_PATH="''$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels''${NIX_PATH:+:''$NIX_PATH}"
 
       export LANG="en_GB.UTF-8"
