@@ -81,6 +81,14 @@ install_zinit() {
   fi
 }
 
+configure_nvidia() {
+  # home-manager cannot manage files outside $HOME (duh!)
+  local MODPROBE_FILE="/etc/modprobe.d/nvidia-drm-modeset.conf"
+  if [[ ! -f "$MODPROBE_FILE" ]]; then
+    sudo cp etc/modprobe.d/nvidia-drm-modeset.conf "$MODPROBE_FILE"
+  fi
+}
+
 ARCH_PACKAGES=(
     # pre-config dependencies
     nix
@@ -101,6 +109,7 @@ ARCH_PACKAGES=(
     yubikey-manager
     jre-openjdk
     obsidian
+    autorandr
 )
 
 AUR_PACKAGES=(
@@ -112,6 +121,7 @@ yay -Sy "${AUR_PACKAGES[@]}"
 
 stow --target="$HOME" nix
 configure_nix
+configure_nvidia
 install_zinit
 change_shell_to_zsh_if_not_already_changed
 install_home_manager
