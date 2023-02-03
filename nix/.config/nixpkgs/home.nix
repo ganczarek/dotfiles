@@ -21,6 +21,7 @@
 
   imports = [
     ./alacritty.nix
+    ./arandr.nix
     ./git.nix
     ./tig.nix
     ./github-cli.nix
@@ -32,8 +33,8 @@
   ];
 
   nixpkgs.overlays = [
-    # use zsh installed by pacman
-    (self: super: { zsh = pkgs.hello; })
+    # use packages installed by pacman
+    (self: super: { zsh = pkgs.hello; autorandr = pkgs.hello; })
   ];
 
 }
