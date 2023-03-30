@@ -12,5 +12,6 @@
     # - buttonless: title bar, transparent background, but no title bar buttons
     window.declarations = "none";
     font.size = 10.0;
+    dynamic_title = "true";
   };
 }
