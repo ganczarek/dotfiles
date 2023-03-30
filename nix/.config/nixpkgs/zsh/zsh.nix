@@ -31,7 +31,7 @@
 
       export EDITOR="nvim"
       export PATH="''$HOME/.local/bin:''$HOME/.local/share/JetBrains/Toolbox/scripts:''$PATH"
-      export NIX_PATH="''$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels''${NIX_PATH:+:''$NIX_PATH}"
+      export NIX_PATH="''$HOME/.nix-defexpr/channels''${NIX_PATH:+:''$NIX_PATH}"
 
       export LANG="en_GB.UTF-8"
       # https://nixos.wiki/wiki/Locales
