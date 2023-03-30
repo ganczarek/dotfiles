@@ -118,7 +118,7 @@ AUR_PACKAGES=(
 )
 
 sudo pacman -Sy --needed --noconfirm "${ARCH_PACKAGES[@]}"
-yay -Sy "${AUR_PACKAGES[@]}"
+yay -Sy --needed "${AUR_PACKAGES[@]}"
 
 stow --target="$HOME" nix
 configure_nix
