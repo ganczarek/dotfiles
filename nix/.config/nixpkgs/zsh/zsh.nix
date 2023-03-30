@@ -21,6 +21,7 @@
       tmux = "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf";
       # pull and rebase all repositories you can list within current dir
       rg-git-pull-rebase-all = "ls | xargs -I % sh -xc 'cd % && git diff-index --quiet HEAD -- && git pull --rebase'";
+      ssh = "TERM=xterm-256color ssh";
     };
 
     envExtra = ''
