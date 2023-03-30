@@ -111,6 +111,9 @@ ARCH_PACKAGES=(
     jre-openjdk
     obsidian
     autorandr
+
+    docker
+    docker-compose
 )
 
 AUR_PACKAGES=(
