@@ -104,6 +104,7 @@ ARCH_PACKAGES=(
     tig
     difftastic
     github-cli
+    direnv
 
     libfido2
     yubikey-manager
