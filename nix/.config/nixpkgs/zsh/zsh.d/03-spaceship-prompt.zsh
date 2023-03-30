@@ -5,7 +5,8 @@ SPACESHIP_PROMPT_ORDER=(
   git
   docker
   venv
-  pyenv
+  #pyenv
+  nix_shell
   aws
   line_sep # Line break
   exit_code # Exit code section
