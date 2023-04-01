@@ -28,9 +28,9 @@
     ./gpg.nix
     ./i3/i3.nix
     ./keepassxc.nix
-    ./ssh-agent.nix
     ./neovim.nix
     ./zsh/zsh.nix
+    ./xsession/xsession.nix
   ];
 
   nixpkgs.overlays = [
