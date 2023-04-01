@@ -112,6 +112,8 @@ ARCH_PACKAGES=(
     obsidian
     autorandr
 
+    xf86-input-wacom
+
     docker
     docker-compose
 

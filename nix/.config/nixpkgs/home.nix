@@ -30,6 +30,7 @@
     ./keepassxc.nix
     ./neovim.nix
     ./zsh/zsh.nix
+    ./wacom/wacom.nix
     ./xsession/xsession.nix
   ];
 
