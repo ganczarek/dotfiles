@@ -114,6 +114,14 @@ ARCH_PACKAGES=(
 
     docker
     docker-compose
+
+    # i3 Window Manager
+    i3-wm
+    i3blocks
+    i3lock
+    i3status
+    autotiling-rs
+    feh
 )
 
 AUR_PACKAGES=(
