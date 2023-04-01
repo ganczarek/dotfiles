@@ -258,6 +258,9 @@ bindsym $mod+n exec /usr/bin/thunar
 # FN+u
 bindsym Print exec scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot ~/Pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
+# toggle between displays and map wacom
+bindsym $mod+Shift+w exec notify-send "$(wacom2monitor NEXT)"
+
 ##########################################
 # configuration for workspace behaviour: #
 ##########################################
