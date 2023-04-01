@@ -179,8 +179,8 @@ bindsym $mod+Shift+r restart
 bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 
 # Backlight control
-bindsym XF86MonBrightnessUp exec xbacklight +5 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
-bindsym XF86MonBrightnessDown exec xbacklight -5 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight +5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 
 # change focus
 bindsym $mod+l         focus left
