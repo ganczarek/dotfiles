@@ -85,6 +85,15 @@ configure_etc() {
   find etc -type f -exec sudo cp --verbose --no-clobber {} /{} \;
 }
 
+configure_nvidia() {
+  if command -v envycontrol >/dev/null 2>&1; then
+    sudo envycontrol -s hybrid --rtd3
+    sudo systemctl enable nvidia-suspend.service
+    sudo systemctl enable nvidia-hibernate.service
+    sudo systemctl enable nvidia-resume.service
+  fi
+}
+
 ARCH_PACKAGES=(
     # pre-config dependencies
     nix
@@ -131,6 +140,7 @@ yay -Sy --needed "${AUR_PACKAGES[@]}"
 
 stow --target="$HOME" nix
 configure_nix
+configure_nvidia
 configure_etc
 install_zinit
 change_shell_to_zsh_if_not_already_changed
