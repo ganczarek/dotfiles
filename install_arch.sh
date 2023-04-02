@@ -87,6 +87,10 @@ configure_nvidia() {
   if [[ ! -f "$MODPROBE_FILE" ]]; then
     sudo cp etc/modprobe.d/nvidia-drm-modeset.conf "$MODPROBE_FILE"
   fi
+  local MODPROBE_FILE="/etc/modprobe.d/disable-nouveau.conf"
+  if [[ ! -f "$MODPROBE_FILE" ]]; then
+    sudo cp etc/modprobe.d/disable-nouveau.conf "$MODPROBE_FILE"
+  fi
 }
 
 ARCH_PACKAGES=(
