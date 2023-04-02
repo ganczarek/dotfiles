@@ -28,7 +28,7 @@ trusted-users = $USER
 EOF
         echo
         echo "  Nix configuration requires user to log out and log in again."
-        echo "  Press $mod+Shift+e in i3wm"
+        echo "  Press $mod+Shift+Escape in i3wm"
         echo
         exit
     fi
@@ -38,7 +38,7 @@ EOF
 }
 
 install_home_manager() {
-    nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager
+    nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
     nix-channel --update
     # NIX_PATH is needed to install home-manager before we configure shell with all env variables
     export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}
