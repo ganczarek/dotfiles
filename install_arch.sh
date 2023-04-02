@@ -22,7 +22,7 @@ configure_nix() {
         sudo systemctl start nix-daemon.service
         sudo gpasswd -a $USER nix-users
         echo "Adding trusted-user to global nix configuration"
-        sudo tee -a /etc/nix/nix.conf > /dev/null << EOF        
+        sudo tee -a /etc/nix/nix.conf > /dev/null << EOF
 # Added by $0
 trusted-users = $USER
 EOF
@@ -81,16 +81,8 @@ install_zinit() {
   fi
 }
 
-configure_nvidia() {
-  # home-manager cannot manage files outside $HOME (duh!)
-  local MODPROBE_FILE="/etc/modprobe.d/nvidia-drm-modeset.conf"
-  if [[ ! -f "$MODPROBE_FILE" ]]; then
-    sudo cp etc/modprobe.d/nvidia-drm-modeset.conf "$MODPROBE_FILE"
-  fi
-  local MODPROBE_FILE="/etc/modprobe.d/disable-nouveau.conf"
-  if [[ ! -f "$MODPROBE_FILE" ]]; then
-    sudo cp etc/modprobe.d/disable-nouveau.conf "$MODPROBE_FILE"
-  fi
+configure_etc() {
+  find etc -type f -exec sudo cp --verbose --no-clobber {} /{} \;
 }
 
 ARCH_PACKAGES=(
@@ -139,7 +131,7 @@ yay -Sy --needed "${AUR_PACKAGES[@]}"
 
 stow --target="$HOME" nix
 configure_nix
-configure_nvidia
+configure_etc
 install_zinit
 change_shell_to_zsh_if_not_already_changed
 install_home_manager
