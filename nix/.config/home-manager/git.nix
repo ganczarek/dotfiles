@@ -81,8 +81,12 @@
     ignores = [
       ".idea"
       "*.iml"
-      # MacOS
-      ".DS_Store"
+      ".DS_Store" # MacOS
+      ".python-version" # pyenv
+      ".java-version" # jenv
+      ".tool-versions" # asdf
+      ".envrc" # direnv
+      "shell.nix"
     ];
 
   };
