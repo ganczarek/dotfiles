@@ -498,8 +498,15 @@ bindsym $mod+t exec rofi -show window \
 # Scratchpad config #
 #####################
 
+# Apps to automatically move to scratchpad
+for_window [instance="slack"] move to scratchpad
+
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+
+# Find specific app in scratchpad (grave = `)
+bindsym $mod+equal [instance="keepassxc"] scratchpad show
+bindsym $mod+grave [instance="slack"] scratchpad show
