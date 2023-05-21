@@ -39,6 +39,12 @@
     '';
 
     initExtra = ''
+      # some installation scripts assume that bash is being used and modify only .bash_profile
+      [ -f ~/.bash_profile ] && source ~/.bash_profile
+
+      # local configuration
+      [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
       for file in ''$XDG_CONFIG_HOME/zsh/zsh.d/*; do source $file; done
 
       setopt hist_reduce_blanks # Remove superfluous blanks before recording entry.
