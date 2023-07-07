@@ -8,7 +8,7 @@
     userEmail = "16733667+ganczarek@users.noreply.github.com";
     
     signing = {
-      key = "CBC5CFE86E790712";
+      key = "311F40CE5D3DA3F6";
       signByDefault = true;
       gpgPath = "/usr/bin/gpg2";
     };
