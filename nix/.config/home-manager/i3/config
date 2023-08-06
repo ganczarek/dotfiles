@@ -233,6 +233,9 @@ bindsym $mod+a focus parent
 # open new empty workspace
 bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 
+# jump to urgent window
+bindsym $mod+x [urgent=latest] focus
+
 # Multimedia Keys
 
 # volume (FN+g and FN+h)
@@ -375,6 +378,19 @@ for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
+
+# handling floating dialogs (based on config from i3's ArchWiki page)
+for_window [window_role="About"] floating enable
+for_window [window_role="Organizer"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="page-info"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="toolbox"] floating enable
+for_window [window_role="webconsole"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
 
 # set border of floating window
 #for_window [class="urxvt"] border pixel 1
