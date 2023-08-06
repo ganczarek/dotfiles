@@ -358,8 +358,8 @@ exec_always --no-startup-id /usr/bin/light-locker
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 
 # autotiling script
-# https://github.com/ammgws/autotiling-rs
-exec_always --no-startup-id autotiling-rs
+# https://github.com/nwg-piotr/autotiling
+exec_always --no-startup-id autotiling
 
 ##################
 # floating rules #
