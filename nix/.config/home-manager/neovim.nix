@@ -16,7 +16,6 @@
       vim-nix
     ];
 
-    extraConfig = ''
-    '';
+    extraConfig = builtins.readFile ./nvim/init.vim;
   };
 }
