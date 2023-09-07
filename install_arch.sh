@@ -101,7 +101,7 @@ ARCH_PACKAGES=(
 
     # terminal and shell
     zsh
-    exa
+    eza
     fzf
     fasd
     htop
