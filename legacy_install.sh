@@ -104,7 +104,7 @@ install_macos pinentry-mac
 install_linux pinentry
 setup_gpg_agent
 
-install exa
+install eza
 install fzf
 install fasd
 install_macos reattach-to-user-namespace
