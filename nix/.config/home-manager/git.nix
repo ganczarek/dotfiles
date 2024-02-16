@@ -40,6 +40,7 @@
         # Detect copies as well as renames
         renames = "copies";
         external = "difft";
+        algorithm = "histogram";
       };
 
       # TODO: diff "bin"
@@ -54,14 +55,32 @@
         autocorrect = 1;
       };
 
-      push = { default = "simple"; };
+      # always push the local branch to a remote branch with the same name
+      push = { default = "current"; };
       pull = { rebase = false; };
-      merge = { tool = "meld"; };
+      merge = {
+        tool = "meld";
+        conflictStyle = "zdiff3";
+      };
+      rebase = {
+        # automatically squash all fixup commits during rebase
+        autoSquash = true;
+      };
+      commit = {
+      # https://help.github.com/articles/signing-commits-using-gpg/
+        gpgSign = true;
+        verbose = true;
+      };
 
       "mergetool \"idea\"" = {
 	cmd = "/usr/local/bin/idea merge $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") $(cd $(dirname \"$BASE\") && pwd)/$(basename \"$BASE\") $(cd $(dirname \"$MERGED\") && pwd)/$(basename \"$MERGED\")";
 	trueExitCode = true;
       };
+
+      transfer = { fsckObjects = true; };
+      fetch = { fsckObjects = true; };
+      receive = { fsckObjects = true; };
+      log = { date = "iso"; };
 
     };
 
