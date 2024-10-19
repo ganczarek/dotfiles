@@ -21,11 +21,6 @@ configure_nix() {
         echo "Starting nix-daemon servie"
         sudo systemctl start nix-daemon.service
         sudo gpasswd -a $USER nix-users
-        echo "Adding trusted-user to global nix configuration"
-        sudo tee -a /etc/nix/nix.conf > /dev/null << EOF
-# Added by $0
-trusted-users = $USER
-EOF
         echo
         echo "  Nix configuration requires user to log out and log in again."
         echo "  Press $mod+Shift+Escape in i3wm"
