@@ -18,9 +18,9 @@
     maxCacheTtl = 28800; # 8 hours
     enableScDaemon = false;
     enableSshSupport = false;
-    pinentryFlavor = null;
+    pinentryPackage = null;
     extraConfig = ''
-      pinentry-program /usr/bin/pinentry-gtk-2
+      pinentry-program /usr/bin/pinentry-gtk
     '';
   };
 }
