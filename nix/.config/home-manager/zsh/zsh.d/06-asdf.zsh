@@ -1,9 +1,7 @@
-if [[ -d /opt/asdf-vm ]]; then
-    export ASDF_DIR=/opt/asdf-vm
+if command -v "asdf" >/dev/null 2>&1; then
     export ASDF_CONFIG_FILE=$XDG_CONFIG_HOME/asdf/asdfrc
     export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
-
-    source /opt/asdf-vm/asdf.sh
+    export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
     zinit wait lucid for OMZP::asdf
 
@@ -19,4 +17,5 @@ if [[ -d /opt/asdf-vm ]]; then
         asdf plugin-add $PLUGIN
       fi
     done
+
 fi
