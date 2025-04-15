@@ -10,7 +10,7 @@
     signing = {
       key = "311F40CE5D3DA3F6";
       signByDefault = true;
-      gpgPath = "/usr/bin/gpg2";
+      signer = "/usr/bin/gpg2";
     };
 
     extraConfig = {
