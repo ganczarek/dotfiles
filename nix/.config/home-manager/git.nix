@@ -43,8 +43,6 @@
         algorithm = "histogram";
       };
 
-      # TODO: diff "bin"
-
       "diff \"bin\"" = {
         # Use `hexdump` to diff binary files
         textconv = "hexdump -v -C";
@@ -73,8 +71,8 @@
       };
 
       "mergetool \"idea\"" = {
-	cmd = "/usr/local/bin/idea merge $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") $(cd $(dirname \"$BASE\") && pwd)/$(basename \"$BASE\") $(cd $(dirname \"$MERGED\") && pwd)/$(basename \"$MERGED\")";
-	trueExitCode = true;
+	      cmd = "/usr/local/bin/idea merge $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") $(cd $(dirname \"$BASE\") && pwd)/$(basename \"$BASE\") $(cd $(dirname \"$MERGED\") && pwd)/$(basename \"$MERGED\")";
+	      trueExitCode = true;
       };
 
       transfer = { fsckObjects = true; };
