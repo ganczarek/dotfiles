@@ -105,7 +105,6 @@
       ".java-version" # jenv
       ".tool-versions" # asdf
       ".envrc" # direnv
-      "shell.nix"
     ];
 
   };
