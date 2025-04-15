@@ -1,7 +1,0 @@
-[user]
-    name = John Doe
-    email = john@doe.com
-    signingkey = 123456789ABCDE
-
-[init]
-    defaultBranch = main

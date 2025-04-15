@@ -1,8 +1,0 @@
-.idea
-*.iml
-# MacOS
-.DS_Store
-# pyenv
-.python-version
-# jenv
-.java-version
