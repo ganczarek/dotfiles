@@ -38,7 +38,7 @@
       export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
     '';
 
-    initExtra = ''
+    initContent = ''
       # some installation scripts assume that bash is being used and modify only .bash_profile
       [ -f ~/.bash_profile ] && source ~/.bash_profile
 
