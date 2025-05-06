@@ -27,3 +27,5 @@ if [[ $#h -gt 0 ]]; then
 fi
 
 zinit wait lucid for zdharma/fast-syntax-highlighting
+
+zinit ice if'command -v uv >/dev/null 2>&1'; zinit ice atload'eval "$(uv generate-shell-completion zsh)"'
