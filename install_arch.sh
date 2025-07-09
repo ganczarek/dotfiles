@@ -15,18 +15,10 @@ if [[ ! -d "$DOTFILES_DIR" ]]; then
 fi
 
 configure_nix() {
-    if [[ "$(groups)" != *nix-users* ]]; then
-        echo "Enabling nix-daemon service"
-        sudo systemctl enable nix-daemon.service
-        echo "Starting nix-daemon servie"
-        sudo systemctl start nix-daemon.service
-        sudo gpasswd -a $USER nix-users
-        echo
-        echo "  Nix configuration requires user to log out and log in again."
-        echo "  Press $mod+Shift+Escape in i3wm"
-        echo
-        exit
-    fi
+    echo "Enabling nix-daemon service"
+    sudo systemctl enable nix-daemon.service
+    echo "Starting nix-daemon servie"
+    sudo systemctl start nix-daemon.service
 
     nix-channel --add https://nixos.org/channels/nixpkgs-unstable
     nix-channel --update
