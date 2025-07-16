@@ -40,4 +40,10 @@
     (self: super: { zsh = pkgs.hello; autorandr = pkgs.hello; })
   ];
 
+  services = {
+    lorri = {
+      enable = true;
+    }; 
+  };
+
 }
