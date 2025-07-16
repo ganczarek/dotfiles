@@ -81,6 +81,17 @@ configure_nvidia() {
   fi
 }
 
+configure_tongfang() {
+  local board_name_file="/sys/class/dmi/id/board_name"
+  local board_name="GM5MPHW"
+
+  if [[ -f "$board_name_file" && -r "$board_name_file" ]]; then
+      if [[ "$(cat "$board_name_file" | head -n 1 | tr -d '\n\r')" == "$board_name" ]]; then
+          yay -Sy --needed tuxedo-control-center-bin
+      fi
+  fi
+}
+
 ARCH_PACKAGES=(
     # pre-config dependencies
     nix
@@ -129,6 +140,7 @@ stow --target="$HOME" nix
 configure_nix
 configure_nvidia
 configure_etc
+configure_tongfang
 install_zinit
 change_shell_to_zsh_if_not_already_changed
 install_home_manager
