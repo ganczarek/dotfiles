@@ -107,6 +107,7 @@ ARCH_PACKAGES=(
     tig
     difftastic
     github-cli
+    glab
     direnv
 
     libfido2
