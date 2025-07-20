@@ -33,6 +33,7 @@
     ./zsh/zsh.nix
     ./wacom/wacom.nix
     ./xsession/xsession.nix
+    ./systemd.nix
   ];
 
   nixpkgs.overlays = [

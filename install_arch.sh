@@ -128,6 +128,8 @@ ARCH_PACKAGES=(
     i3status
     autotiling-rs
     feh
+    # needed for correct display locking (systemd-logind -> light-locker -> screen locker (e.g. i3lock))
+    light-locker
 )
 
 AUR_PACKAGES=(

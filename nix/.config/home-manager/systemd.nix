@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
-  # https://wiki.archlinux.org/title/Session_lock#xautolock
-  # https://wiki.archlinux.org/title/Power_management#Sleep_hooks
-  systemd.user.services.i3lock = {
+  # https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Sleep_hooks
+  systemd.user.services.lock-session = {
     Unit = {
       Description = "Automatically lock the screen";
       Before = "sleep.target";
@@ -11,10 +10,8 @@
       WantedBy = [ "sleep.target" ];
     };
     Service = {
-      User = builtins.getEnv "USER_ID";
-      Type = "forking";
-      Environment = "DISPLAY=:0";
-      ExecStart = "/usr/bin/i3lock -c 000000";
+      Type = "oneshot";
+      ExecStart = "/usr/bin/loginctl lock-session";
     };
   };
 }
