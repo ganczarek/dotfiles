@@ -18,7 +18,9 @@
     maxCacheTtl = 28800; # 8 hours
     enableScDaemon = false;
     enableSshSupport = false;
-    pinentryPackage = null;
+    pinentry = {
+        package = null;
+    };
     extraConfig = ''
       pinentry-program /usr/bin/pinentry-curses
     '';
