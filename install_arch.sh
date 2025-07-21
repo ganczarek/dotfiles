@@ -109,6 +109,7 @@ ARCH_PACKAGES=(
     github-cli
     glab
     direnv
+    neovim
 
     libfido2
     yubikey-manager
