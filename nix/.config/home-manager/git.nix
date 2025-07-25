@@ -105,5 +105,9 @@
       ".envrc" # direnv
     ];
 
+    includes = [
+      { path = "~/.config/git/config.local"; }
+    ];
+
   };
 }
