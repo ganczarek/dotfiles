@@ -32,3 +32,4 @@ zinit ice if'command -v uv >/dev/null 2>&1'; zinit ice atload'eval "$(uv generat
 
 # GitLab CLI
 zinit ice if'command -v glab >/dev/null 2>&1'; zinit ice atload'glab completion -s zsh > "${fpath[1]}/_glab"'
+zinit ice if'command -v jira >/dev/null 2>&1'; zinit ice atload'jira completion zsh > "${fpath[1]}/_jira"'
