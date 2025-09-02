@@ -69,6 +69,7 @@
         gpgSign = true;
         verbose = true;
       };
+      init = { defaultBranch = "main"; };
 
       "mergetool \"idea\"" = {
 	      cmd = "/usr/local/bin/idea merge $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") $(cd $(dirname \"$BASE\") && pwd)/$(basename \"$BASE\") $(cd $(dirname \"$MERGED\") && pwd)/$(basename \"$MERGED\")";
