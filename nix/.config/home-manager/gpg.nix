@@ -14,8 +14,8 @@
 
   services.gpg-agent = {
     enable = true;
-    defaultCacheTtl = 14400; # 4 hours
-    maxCacheTtl = 28800; # 8 hours
+    defaultCacheTtl = 14400; # 4 hours (resets each time key is used)
+    maxCacheTtl = 43200; # 12 hours (max time key can be cached)
     enableScDaemon = false;
     enableSshSupport = false;
     pinentry = {
