@@ -94,6 +94,9 @@
       #change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [ \\"$echo $VAR\\" = \\"$OLD\\" ]; then export $VAR=\\"$NEW\\"; fi\" $@; }; f" ];
 
       permission-reset = "!git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode)\" --color=never | git apply";
+
+      # Recreate the last commit using the previous commit message (useful if a commit failed to be created)
+      recommit = "!git commit -c .git/COMMIT_EDITMSG";
     };
   
     ignores = [
