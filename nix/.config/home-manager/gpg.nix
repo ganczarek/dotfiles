@@ -8,7 +8,10 @@
 
     # content of gpg.conf
     settings = {
-      keyserver = "hkp://keys.openpgp.net";
+      keyserver = [
+        "hkp://keys.openpgp.net" 
+        "hkp://keyserver.ubuntu.com"
+        ];
     };
   };
 
