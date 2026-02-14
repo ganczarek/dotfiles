@@ -529,5 +529,5 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Find specific app in scratchpad (grave = `)
-bindsym $mod+equal [instance="keepassxc"] scratchpad show
+bindsym $mod+equal [instance="bitwarden"] scratchpad show
 bindsym $mod+grave [instance="slack"] scratchpad show
