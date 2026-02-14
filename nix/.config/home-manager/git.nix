@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.git = {
@@ -36,7 +36,7 @@
         autocrlf = "input";
 
         editor = "nvim";
-        excludesfile = "~/.config/git/ignore";
+        excludesfile = "${config.xdg.configHome}/git/ignore";
       };
 
       diff = {
@@ -113,7 +113,11 @@
     ];
 
     includes = [
-      { path = "~/.config/git/config.local"; }
+      { path = "${config.xdg.configHome}/git/config.local"; }
+      {
+        path = "~/workspace/jlp/.gitconfig";
+        condition = "gitdir:~/workspace/jlp/";
+      }
     ];
 
   };
