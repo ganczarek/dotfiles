@@ -3,7 +3,7 @@
 {
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh"; # can be removed with home-manager v26.05+
 
     history = {
       path = "$ZDOTDIR/.zsh_history";

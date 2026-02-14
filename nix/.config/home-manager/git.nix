@@ -4,8 +4,6 @@
   programs.git = {
     enable = true;
     package = pkgs.hello;
-    userName = "Rafal Ganczarek";
-    userEmail = "16733667+ganczarek@users.noreply.github.com";
     
     signing = {
       key = "FB028A23305D6A65";
@@ -13,7 +11,12 @@
       signer = "/usr/bin/gpg2";
     };
 
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Rafal Ganczarek";
+        email = "16733667+ganczarek@users.noreply.github.com";
+      };
+
       core = {
         # Treat spaces before tabs and all kinds of trailing whitespace as an error
         # [default] trailing-space: looks for spaces at the end of a line
@@ -72,8 +75,8 @@
       init = { defaultBranch = "main"; };
 
       "mergetool \"idea\"" = {
-	      cmd = "/usr/local/bin/idea merge $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") $(cd $(dirname \"$BASE\") && pwd)/$(basename \"$BASE\") $(cd $(dirname \"$MERGED\") && pwd)/$(basename \"$MERGED\")";
-	      trueExitCode = true;
+        cmd = "/usr/local/bin/idea merge $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") $(cd $(dirname \"$BASE\") && pwd)/$(basename \"$BASE\") $(cd $(dirname \"$MERGED\") && pwd)/$(basename \"$MERGED\")";
+        trueExitCode = true;
       };
 
       transfer = { fsckObjects = true; };
@@ -81,22 +84,22 @@
       receive = { fsckObjects = true; };
       log = { date = "iso"; };
 
-    };
 
-    aliases = {
-      lol = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
-      logv = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
+      alias = {
+        lol = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
+        logv = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
 
-      stash-pr = "!sh -c 'stash pull-request $0 $@'";
-      hub-pr = "!sh -c 'hub pull-request $0 $@'";
+        stash-pr = "!sh -c 'stash pull-request $0 $@'";
+        hub-pr = "!sh -c 'hub pull-request $0 $@'";
 
-      # git change-commits GIT_COMMITTER_NAME "old name" "new name"
-      #change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [ \\"$echo $VAR\\" = \\"$OLD\\" ]; then export $VAR=\\"$NEW\\"; fi\" $@; }; f" ];
+        # git change-commits GIT_COMMITTER_NAME "old name" "new name"
+        #change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [ \\"$echo $VAR\\" = \\"$OLD\\" ]; then export $VAR=\\"$NEW\\"; fi\" $@; }; f" ];
 
-      permission-reset = "!git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode)\" --color=never | git apply";
+        permission-reset = "!git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode)\" --color=never | git apply";
 
-      # Recreate the last commit using the previous commit message (useful if a commit failed to be created)
-      recommit = "!git commit -c .git/COMMIT_EDITMSG";
+        # Recreate the last commit using the previous commit message (useful if a commit failed to be created)
+        recommit = "!git commit -c .git/COMMIT_EDITMSG";
+      };
     };
   
     ignores = [

@@ -1,16 +1,10 @@
 {
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false; # manually set "*" match block
     includes = [
         "config-*"
     ];
-    addKeysToAgent = "yes";
-    compression = true;
-    serverAliveInterval = 30;
-    serverAliveCountMax = 3;
-
-    controlMaster = "auto";
-    controlPersist = "5m";
 
     extraConfig = ''
       #UseKeychain yes
@@ -21,6 +15,15 @@
     '';
 
     matchBlocks = {
+      "*" = {
+        addKeysToAgent = "yes";
+        compression = true;
+        serverAliveInterval = 30;
+        serverAliveCountMax = 3;
+        controlMaster = "auto";
+        controlPersist = "5m";
+      };
+
       "github.com" = {
         user = "git";
         identityFile = "~/.ssh/github_ed25519"; 
