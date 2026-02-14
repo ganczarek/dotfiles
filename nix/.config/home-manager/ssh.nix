@@ -17,11 +17,40 @@
       TCPKeepAlive yes
       StrictHostKeyChecking ask
       BatchMode no
-
-      # Improve ssh security
-      Protocol 2
-      Ciphers aes256-ctr,aes128-ctr
-      MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
+      IdentitiesOnly yes
     '';
+
+    matchBlocks = {
+      "github.com" = {
+        user = "git";
+        identityFile = "~/.ssh/github_ed25519"; 
+      };
+      
+      "rpi4" = {
+        hostname = "192.168.1.197";
+        user = "pi";
+        port = 2022;
+        identityFile = "~/.ssh/rpi4_rsa";
+      };
+      
+      "raspberrypi rpi4-tailscale" = {
+        user = "pi";
+        port = 2022;
+        identityFile = "~/.ssh/rpi4_rsa";
+      };
+
+      "asustor asustor-trailscale" = {
+        user = "root";
+        port = 2022;
+        identityFile = "~/.ssh/asustor_id_rsa";
+      };
+
+      "asustor-local" = {
+        hostname = "192.168.100.2";
+        user = "root";
+        port = 2022;
+        identityFile = "~/.ssh/asustor_id_rsa";
+      };
+    };
   };
 }
