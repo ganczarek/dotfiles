@@ -531,3 +531,6 @@ bindsym $mod+minus scratchpad show
 # Find specific app in scratchpad (grave = `)
 bindsym $mod+equal [instance="bitwarden"] scratchpad show
 bindsym $mod+grave [instance="slack"] scratchpad show
+
+# Bluetooth
+exec --no-startup-id blueman-applet
