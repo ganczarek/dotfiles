@@ -14,45 +14,45 @@
       IdentitiesOnly yes
     '';
 
-    matchBlocks = {
+    settings = {
       "*" = {
-        addKeysToAgent = "yes";
-        compression = true;
-        serverAliveInterval = 30;
-        serverAliveCountMax = 3;
-        controlMaster = "auto";
-        controlPersist = "5m";
+        AddKeysToAgent = "yes";
+        Compression = true;
+        ServerAliveInterval = 30;
+        ServerAliveCountMax = 3;
+        ControlMaster = "auto";
+        ControlPersist = "5m";
       };
 
       "github.com" = {
-        user = "git";
-        identityFile = "~/.ssh/github_ed25519"; 
+        User = "git";
+        IdentityFile = "~/.ssh/github_ed25519"; 
       };
       
       "rpi4" = {
-        hostname = "192.168.1.197";
-        user = "pi";
-        port = 2022;
-        identityFile = "~/.ssh/rpi4_rsa";
+        Hostname = "192.168.1.197";
+        User = "pi";
+        Port = 2022;
+        IdentityFile = "~/.ssh/rpi4_rsa";
       };
       
       "raspberrypi rpi4-tailscale" = {
-        user = "pi";
-        port = 2022;
-        identityFile = "~/.ssh/rpi4_rsa";
+        User = "pi";
+        Port = 2022;
+        IdentityFile = "~/.ssh/rpi4_rsa";
       };
 
       "asustor asustor-trailscale" = {
-        user = "root";
-        port = 2022;
-        identityFile = "~/.ssh/asustor_id_rsa";
+        User = "root";
+        Port = 2022;
+        IdentityFile = "~/.ssh/asustor_id_rsa";
       };
 
       "asustor-local" = {
-        hostname = "192.168.100.2";
-        user = "root";
-        port = 2022;
-        identityFile = "~/.ssh/asustor_id_rsa";
+        Hostname = "192.168.100.2";
+        User = "root";
+        Port = 2022;
+        IdentityFile = "~/.ssh/asustor_id_rsa";
       };
     };
   };
