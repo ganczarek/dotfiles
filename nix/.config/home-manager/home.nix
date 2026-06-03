@@ -22,6 +22,20 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.rbw = {
+    enable = true;
+    settings = {
+      email = "bitwarden@ganczarek.info";
+      base_url = "https://api.bitwarden.eu/";
+      ui_url = "https://vault.bitwarden.eu/";
+      identity_url = "https://identity.bitwarden.eu";
+      notifications_url = "https://notifications.bitwarden.eu";
+      lock_timeout = 3600;
+      sync_interval = 3600;
+      pinentry = pkgs.pinentry-curses;
+    };
+  };
+
   imports = [
     ./alacritty.nix
     ./arandr.nix
