@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   programs.ssh = {
     enable = true;
@@ -35,18 +37,6 @@
         Port = 2022;
         IdentityFile = "~/.ssh/rpi4_rsa";
       };
-      
-      "raspberrypi rpi4-tailscale" = {
-        User = "pi";
-        Port = 2022;
-        IdentityFile = "~/.ssh/rpi4_rsa";
-      };
-
-      "asustor asustor-trailscale" = {
-        User = "root";
-        Port = 2022;
-        IdentityFile = "~/.ssh/asustor_id_rsa";
-      };
 
       "asustor-local" = {
         Hostname = "192.168.100.2";
@@ -54,6 +44,20 @@
         Port = 2022;
         IdentityFile = "~/.ssh/asustor_id_rsa";
       };
-    };
+    } // (
+      lib.genAttrs [ "raspberrypi" "rpi4-tailscale" ] (name: {
+        HostName = "raspberrypi";
+        User = "pi";
+        Port = 2022;
+        IdentityFile = "~/.ssh/rpi4_rsa";
+      })
+    ) // (
+      lib.genAttrs [ "asustor" "asustor-tailscale" ] (name: {
+        HostName = "asustor";
+        User = "root";
+        Port = 2022;
+        IdentityFile = "~/.ssh/asustor_id_rsa";
+      })
+    );
   };
 }
