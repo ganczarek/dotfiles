@@ -1,0 +1,1 @@
+AddPackage --foreign aconfmgr-git # A configuration manager for Arch Linux

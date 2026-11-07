@@ -1,0 +1,18 @@
+# Fixes suspend on RedmiBook Pro 16 by working around a broken callback in bitland_mifs_wmi:
+# 
+# PM: dpm_run_callback(): bitland_mifs_wmi_suspend [bitland_mifs_wmi] returns -22
+# PM: failed to suspend: error -22
+#
+[Unit]
+Description=Unbind bitland_mifs_wmi before sleep and rebind after
+Before=sleep.target
+StopWhenUnneeded=yes
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c 'echo -n "B60BFB48-3E5B-49E4-A0E9-8CFFE1B3434B-4" > /sys/bus/wmi/drivers/bitland-mifs-wmi/unbind 2>/dev/null || true'
+ExecStop=/bin/sh -c 'echo -n "B60BFB48-3E5B-49E4-A0E9-8CFFE1B3434B-4" > /sys/bus/wmi/drivers/bitland-mifs-wmi/bind 2>/dev/null || true'
+
+[Install]
+WantedBy=sleep.target
