@@ -136,7 +136,7 @@ ARCH_PACKAGES=(
 )
 
 AUR_PACKAGES=(
-    jetbrains-toolbox
+    # jetbrains-toolbox
 )
 
 sudo pacman -Sy --needed --noconfirm "${ARCH_PACKAGES[@]}"
@@ -144,9 +144,9 @@ yay -Sy --needed "${AUR_PACKAGES[@]}"
 
 stow --target="$HOME" nix
 configure_nix
-configure_nvidia
-configure_etc
-configure_tongfang
+# configure_nvidia
+# configure_etc
+# configure_tongfang
 install_zinit
 change_shell_to_zsh_if_not_already_changed
 install_home_manager

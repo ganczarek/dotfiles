@@ -45,12 +45,12 @@
     ./gpg.nix
     ./ssh.nix
     ./i3/i3.nix
-    ./keepassxc.nix
+#    ./keepassxc.nix
     ./neovim.nix
     ./zsh/zsh.nix
     ./wacom/wacom.nix
     ./xsession/xsession.nix
-    ./systemd.nix
+#    ./systemd.nix
   ];
 
   nixpkgs.overlays = [
