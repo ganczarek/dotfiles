@@ -154,6 +154,3 @@ AddPackage xorg-xinput # Small commandline tool to configure devices
 AddPackage xorg-xrandr # Primitive command line interface to RandR extension
 AddPackage xterm # X Terminal Emulator
 AddPackage yay # Yet another yogurt. Pacman wrapper and AUR helper written in go.
-
-CopyFile /etc/default/grub
-SetFileProperty / mode 555

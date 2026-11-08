@@ -1,0 +1,10 @@
+[Unit]
+Description=Set battery charge limit on boot
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/set_charge_limit.sh 80
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

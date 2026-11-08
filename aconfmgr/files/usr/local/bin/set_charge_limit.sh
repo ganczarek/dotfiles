@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Source: https://wiki.archlinux.org/title/Xiaomi_RedmiBook_Pro_16_2025#Charge_Limit
+
+acpi_call() {
+    local command="$1"
+    local hex_value="$2"
+
+    local acpi_string="\\_SB.PC00.WMID.WMAA 0x0 0x1 { \
+0x00 $command 0x00 0x10 0x02 0x00 $hex_value 0x00 \
+0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 \
+0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 \
+0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 }"
+
+    echo "$acpi_string" | tee /proc/acpi/call
+}
+
+set_charge_limit() {
+    local limit_hex
+    case "$1" in
+        40) limit_hex="0x08" ;;
+        50) limit_hex="0x07" ;;
+        60) limit_hex="0x06" ;;
+        70) limit_hex="0x05" ;;
+        80) limit_hex="0x01" ;;
+        *) echo "Invalid limit. Valid options: 40, 50, 60, 70, 80"; exit 1 ;;
+    esac
+
+    echo "Setting $1% limit"
+    acpi_call "0xfb" "$limit_hex"
+
+    echo "Enabling charge limit"
+    acpi_call "0xfa" "0x00"
+
+    echo "Enabling charge limit (second call)"
+    acpi_call "0xfa" "0x00"
+}
+
+disable_charge_limit() {
+    echo "Disabling charge limit"
+    acpi_call "0xfb" "0x00"
+
+    echo "Disabling charge limit (second call)"
+    acpi_call "0xfb" "0x00"
+}
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <limit|disable>"
+    echo "  limit: 40, 50, 60, 70, or 80"
+    echo "  disable: turns off charge limiting"
+    exit 1
+fi
+
+if [ "$1" = "disable" ]; then
+    disable_charge_limit
+else
+    set_charge_limit "$1"
+fi
