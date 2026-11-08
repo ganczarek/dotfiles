@@ -534,3 +534,5 @@ bindsym $mod+grave [instance="slack"] scratchpad show
 
 # Bluetooth
 exec --no-startup-id blueman-applet
+
+exec --no-startup-id xrdb -merge ~/.Xresources

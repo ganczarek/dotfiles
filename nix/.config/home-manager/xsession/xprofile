@@ -10,3 +10,17 @@ fi
 if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
   source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
+
+# Force Qt application scaling
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_ENABLE_HIGHDPI_SCALING=1
+export QT_SCALE_FACTOR=1.5 # Set to 2 for 200% scaling
+
+# GTK scaling (GTK3/4 integer scale)
+# Note: GDK_SCALE only accepts integers (1 or 2). Use GDK_DPI_SCALE for fine-tuning.
+export GDK_SCALE=1
+export GDK_DPI_SCALE=1.2
+
+# Cursor scaling
+export XCURSOR_SIZE=24
+export XCURSOR_THEME=Qogir-Dark

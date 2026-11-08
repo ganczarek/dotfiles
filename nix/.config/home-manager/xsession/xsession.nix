@@ -6,4 +6,5 @@
 
   home.file.".xprofile".source = ./xprofile;
   home.file.".Xmodmap".source = ./Xmodmap;
+  home.file.".Xresources".source = ./Xresources;
 }

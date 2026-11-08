@@ -5,6 +5,6 @@
   # don't install Alacritty (use pacman package)
   programs.alacritty.package = pkgs.hello;
   programs.alacritty.settings = {
-    font.size = 10.0;
+    font.size = 13.0;
   };
 }
