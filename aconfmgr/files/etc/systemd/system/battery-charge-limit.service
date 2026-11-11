@@ -3,7 +3,7 @@ Description=Set battery charge limit on boot
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/set_charge_limit.sh 80
+ExecStart=/usr/local/bin/set_charge_limit.sh 60
 RemainAfterExit=yes
 
 [Install]
