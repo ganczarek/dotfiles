@@ -61,3 +61,13 @@ IgnorePath '/usr/share/info/dir'
 IgnorePath '/usr/share/mime/*'
 IgnorePath '/usr/share/vim/vimfiles/doc/tags'
 IgnorePath '/var/*'
+
+managed_systemd=(
+    'system/fix-bitland-suspend.service'
+    'system/sleep.target.wants/fix-bitland-suspend.service'
+    'system/battery-charge-limit.service'
+    'system/multi-user.target.wants/battery-charge-limit.service'
+    'system/bluetooth.target.wants/bluetooth.service'
+    'system/multi-user.target.wants/nix-daemon.service'
+)
+IgnorePathsExcept '/etc/systemd' "${managed_systemd[@]}"
