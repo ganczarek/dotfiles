@@ -69,5 +69,6 @@ managed_systemd=(
     'system/multi-user.target.wants/battery-charge-limit.service'
     'system/bluetooth.target.wants/bluetooth.service'
     'system/multi-user.target.wants/nix-daemon.service'
+    'system/multi-user.target.wants/tailscaled.service'
 )
 IgnorePathsExcept '/etc/systemd' "${managed_systemd[@]}"
