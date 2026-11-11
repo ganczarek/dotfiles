@@ -22,3 +22,9 @@ SystemdEnable bluez /usr/lib/systemd/system/bluetooth.service
 
 AddPackage tailscale # A mesh VPN that makes it easy to connect your devices, wherever they are.
 CreateLink /etc/systemd/system/multi-user.target.wants/tailscaled.service /usr/lib/systemd/system/tailscaled.service
+
+AddPackage docker # Pack, ship and run any application as a lightweight container
+AddPackage docker-buildx # Docker CLI plugin for extended build capabilities with BuildKit
+AddPackage docker-compose # Fast, isolated development environments using Docker
+CopyFile /etc/firewalld/policies/docker-forwarding.xml
+CopyFile /etc/firewalld/zones/docker.xml
