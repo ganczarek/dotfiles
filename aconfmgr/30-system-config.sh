@@ -17,8 +17,8 @@ CopyFile /etc/sysctl.d/99-reisub.conf
 AddPackage bluetui # TUI for managing bluetooth devices
 AddPackage bluez # Daemons for the bluetooth protocol stack
 AddPackage bluez-utils # Development and debugging utilities for the bluetooth protocol stack
+CopyFile /etc/bluetooth/main.conf
 SystemdEnable bluez /usr/lib/systemd/system/bluetooth.service
 
 AddPackage tailscale # A mesh VPN that makes it easy to connect your devices, wherever they are.
 CreateLink /etc/systemd/system/multi-user.target.wants/tailscaled.service /usr/lib/systemd/system/tailscaled.service
-
