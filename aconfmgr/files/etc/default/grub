@@ -3,14 +3,14 @@
 GRUB_DEFAULT='0'
 GRUB_TIMEOUT='5'
 GRUB_DISTRIBUTOR='EndeavourOS'
-GRUB_CMDLINE_LINUX_DEFAULT='nowatchdog nvme_load=YES loglevel=3'
+GRUB_CMDLINE_LINUX_DEFAULT='nowatchdog nvme_load=YES rd.luks.uuid=14f9ef99-53b6-484d-84ae-64ca4fbf05cb loglevel=3'
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
 GRUB_PRELOAD_MODULES="part_gpt part_msdos"
 
 # Uncomment to enable booting from LUKS encrypted devices
-#GRUB_ENABLE_CRYPTODISK=y
+GRUB_ENABLE_CRYPTODISK=y
 
 # Set to 'countdown' or 'hidden' to change timeout behavior,
 # press ESC key to display menu.
