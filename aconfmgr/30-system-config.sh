@@ -8,6 +8,7 @@ CopyFile /etc/modules-load.d/acpi_call.conf
 
 AddPackage nix # A purely functional package manager
 CopyFile /etc/nix/nix.conf
+CreateLink /etc/systemd/system/multi-user.target.wants/nix-daemon.service /usr/lib/systemd/system/nix-daemon.service
 
 CopyFile /etc/security/faillock.conf
 CopyFile /etc/sysctl.d/99-reisub.conf
